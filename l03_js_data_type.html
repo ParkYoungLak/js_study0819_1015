@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>js data type</title>
+</head>
+
+<body>
+  <main>
+    <h1>자바스크립트의 데이터 타입과 기본 데이터 타입</h1>
+    <p>자바스크립트의 변수는 모든 데이터 타입을 참조할 수 있다.(동적타입 dynamically typed)
+      이 때 모든 프로그래밍 언어와 같이 자주 쓰이는 타입을 기본데이터 타입으로 지정하고 있으며 총8가지가 있다.</p>
+    <article>
+      <h2>typeof Number 숫자형</h2>
+      <p>정수와 (float)부동소수점, 무한대(Infinity), NaN(not a number)숫자가 아닌 것에 대한 오류표기.
+        숫자형은 *,+,-,/ 등을 연산을 할 수 있다.</p>
+      <ul>
+        <li>
+          1/0 : <script>
+            document.write(1 / 0);
+          </script>
+        </li>
+        <li>
+          -1/0 : <script>
+            document.write(-1 / 0);
+          </script>
+        </li>
+        <li>
+        "십"/0 : <script>document.write("십"/0);</script>
+        </li>
+        <li>
+        "10"/2 : <script>document.write("10"/2);</script>
+        (자동으로 형을 변환한다. "10"->10)
+        </li>
+        <li>
+        " 10 "/2 : <script>document.write(" 10 "/2);</script>
+        (자동으로 형을 변환한다. 공백포함" 10 "->10)
+        </li>
+        <li>typeof : 데이터 타입을 확인할 수 있다.</li>
+        <li> let x =100; typeof x</li>
+        <script>
+          let x = 100; //정
+          document.write(typeof(x));
+        </script>
+        <li> x= 3.14;</li>
+        <script>
+           x=3.14;
+          document.write(typeof(x));
+        </script>
+        <li> x= "십"; type of x= </li>
+        <script>
+           x="십"; // 문자열
+          document.write(typeof(x));
+        </script>
+
+      </ul>
+
+
+
+    </article>
+  </main>
+</body>
+
+</html>
