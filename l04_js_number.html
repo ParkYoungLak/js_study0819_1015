@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>javascript Number</title>
+  </head>
+  <body>
+<h1>숫자와 부동 소수점을 포함하는 Number type</h1>
+<ul>
+  <li>number가 표현할 수 있는 최대 수(max_safe_integer)
+  <script>document.write(Number.MAX_SAFE_INTEGER);</script></li>
+  <li>number가 표현할 수 있는 최소 수(min_safe_integer)
+  <script>document.write(Number.MIN_SAFE_INTEGER);</script></li>
+  <li>javascript가 표현할 수 있는 가장 큰 수<script>document.write(Number.MAX_VALUE);</script></li>
+  <li>javascript가 표현할 수 있는 가장 작은 수 <script>document.write(Number.MIN_VALUE);</script></li>
+<li>Number. 는 정수와 소수를 표현한 데이터 타입을 javascript가 브라우저 동작시 생성한 객체.</li>
+<li>number 는 총 63bit를 저장하고 분수는 0~51, 지수는 52~62 부호(.)이 63에 저장된다.</li>
+<li>안전범위를 넘음  <script>
+  document.write(0.2+0.1);
+</script></li>
+<li>document.write(999999999999999999) =<script>
+  document.write(999999999999999999)
+</script></li>
+</ul>
+  </body>
+</html>
