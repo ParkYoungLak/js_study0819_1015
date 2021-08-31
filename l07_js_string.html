@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <main>
+      <h1>문자들의 집합 문자열 String</h1>
+      <p>String 객체는 문자들의 집합인 문자열을 조작하는 함수를 제공한다.</p>
+<article>
+  <h2>문자열 생성 방법</h2>
+
+<ul>
+  <li>let x = "abc";(기본데이터 타입이다.)</li>
+  <li>let x = 'abc';(javascript는 char 캐릭터 타입이 없다.)</li>
+  <li>let x = `abc`;(리터럴 템플릿 적용문자)</li>
+</ul>
+</article>
+<article>
+  <h2>문자(char) 접근하기</h2>
+  <ul>
+    <li>"String"[0] :
+<script>
+  document.write("String"[2])  </script>
+  (but: "String"[2]="a";)(x)
+    </li>
+    <li>"String".charAt(2)  <script>
+      document.write("String".charAt(2))</script>
+      <!--
+      10.isNaN() (x)
+      NaN.isNaN() (x)
+      Number.isNaN(10)
+      new Number(10).constructor.MAX_VALUE;
+      String.charAt("String", 2)   기본데이터 타입인 문자열에 함수를 가지고 있으면 데이터가 커질 수 있다.
+      new String("string").charAt(2); new 연산자로 생겅하는 객체를 인스턴스 객체라 하고 기본데이터 타입 문자열은
+      인스턴스 객체 생성을 생략한다.
+      -->
+    </li>
+  </ul>
+</article>
+<article>
+<h2>기본 데이터 타입인 문자열과 인스턴스 객체인 문자열</h2>
+<ul>
+<li>let StringVal = "안녕하세요";(기본데이터 타입인 문자열)</li>
+<li>let objectVal = new String("안녕하세요"); (new 연산자로 생성한 인스턴트 객체  )</li>
+<script>
+  let stringVal ="안녕하세요";
+  let objectVal = new String("안녕하세요");
+</script>
+<li>typeof stringVal : <script>document.write(typeof stringVal)</script></li>
+<li>typeof objectVal : <script>document.write(typeof objectVal)</script></li>
+<li>stringVal ==objectVal : <script>document.write(stringVal==objectVal)</script></li> value는 같다
+<li>stringVal ===objectVal : <script>document.write(stringVal===objectVal)</script></li> type은 다르다.
+<li>기본데이터 타입인 문자열에는 함수가 존재하지 않는다. 하지만 사용할 수 있는 이유는
+  사용할 때 인스턴트 객체 생성과 비슷한 일이 발생하기 때문이다.</li>
+</ul>
+</article>
+<article>
+  <h2>이스케이프 시퀀스<script>
+    let a='"쌍따옴표 출력"';
+    a= "'작은따옴표'";
+    a="\"쌍따옴표\"";
+     document.write(a);
+  </script></h2>
+  <p>특수 문자나 백슬러시,줄 바꿈, 따옴표 같은 것을 출력할 수 있다.</p>
+  <ul>
+    <li>\" <script>document.write("\"쌍따옴표 시퀀스\"")</script></li>
+    <li>\' <script>document.write("\'쌍따옴표 시퀀스\'")</script></li>
+    <li>\\  <script>document.write("\\백슬러시 시퀀스  \\")</script></li>
+    <li>\n <script>document.write("줄바꿈\n 줄바꿈")</script></li>
+    <li>\t <script>document.write("탭\t\t\t\t바꿈  ")</script></li>
+    <li>\b <script>document.write("백   \b스페이스")</script></li>
+  </ul>
+
+</article>
+<article >
+  <h2>템플릿 리터럴${표현식}</h2>
+  <p>문자열을 ``백틱으로 선언하면 템플릿 리터럴${}을 사용한다는 선언이다.이때 자바스크립트 문법을 표현식에 사용할 수 있다.
+<script>
+  let t="test";
+  let testVal= "자바스크립트 "+t+" 중입니다.";
+  console.log(testVal);;
+let testval2 = `자바스트립트 ${t+'ver'+(1+2)} 중입니다.`;
+console.log(testval2)
+
+</script>
+
+  </p>
+</article>
+    </main>
+  </body>
+</html>

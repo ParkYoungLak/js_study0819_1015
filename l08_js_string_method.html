@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>js String.method</title>
+  </head>
+  <body>
+<h1>자바스크립트 문자열 String의 메소드</h1>
+<p>문자열은 유저에게 전달하는 데이터로 웹상에서 가장 많이 사용된다.
+때문에 문자열을 다루는 함수가 많이 존재한다.</p>
+<!-- table>(thead>tr>th*3)+tbody>(tr>td*2{<script>document.write()</script>})*13 -->
+<table>
+  <thead>
+    <tr>
+      <th>method</th>
+      <th>설명</th>
+      <th>예시</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>toUpperCase(),toLowerCase()</td>
+      <td>문자열의 대문자 or 소문자 변환</td>
+      <td>"Ab Cd".toUpperCase() : <script>document.write("Ab Cd".toUpperCase())</script>
+          "Ab Cd".toLowerCase() : <script>document.write("Ab Cd".toLowerCase())</script>
+      </td>
+    </tr>
+    <tr>
+      <td>trim()</td>
+      <td>문자열의 앞뒤 공백으 제거</td>
+      <td>"최경민       ".trim().length : <script>document.write("최경민      ".trim().length)</script>
+      </td>
+    </tr>
+    <tr>
+      <td>charAt(),charCodeAt()</td>
+      <td></td>
+      <td>
+        "ABCDE".charCodeAt(0)
+        <script>document.write("ABCDE".charCodeAt(0))</script>
+      <br>  "ABCDE".charAt(0)
+        <script>document.write("ABCDE".charAt(0))</script>
+        "ABCDE"[0]
+          <script>document.write("ABCDE"[0])</script>
+      </td>
+    </tr>
+    <tr>
+      <td>slice(start,end) 시작점은 포함,엔드는 제외   </td>
+      <td>일부 문자를 추출할 때 사용.</td>
+      <td>
+  "스파게티 피자 된장찌개 샌드위치    "
+        <script>document.write("스파게티 피자 된장찌개 샌드위치    ".slice(8,12))</script>
+        <br>"스파게티 피자 된장찌개 샌드위치    "
+              <script>document.write("스파게티 피자 된장찌개 샌드위치".slice(-9,-5))</script>
+            <br>  "스파게티 피자 된장찌개 샌드위치    "
+                    <script>document.write("스파게티 피자 된장찌개 샌드위치".slice(5))</script>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </body>
+</html>
