@@ -1,29 +1,166 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <main>
-      <h1>Number 객체의 전역 변수와 함수</h1>
-      <p>기본데이터 타입인 number는 Number라는 타입의 객체를 가진다.
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <main>
+    <h1>Number 객체의 전역 변수와 함수</h1>
+    <p>기본데이터 타입인 number는 Number라는 타입의 객체를 가진다.
       이떄 기본데이터 타입을 보조하기 위해 Number가 내장 객체(new 연산자없이 사용할 수 있는 객체)
-    로 존재하며 다양한 전역변수(어디든 사용할 수 있는)와 메소드를 제공하고 있다.</p>
+      로 존재하며 다양한 전역변수(어디든 사용할 수 있는)와 메소드를 제공하고 있다.</p>
     <script>
       let newNumObject = new Number(11) //기본데이터 타입인 11보다 더 많은 정보를 가짐.
       //new :객체를 생성하겠다.
       //ClassName(): 생성자(new 연산자로 객체를 생성할 때 꼭 호출해야한다.
-      console.log(newNumObject)
-      console.log(newNumObject*11) //연산가능.
-      console.log(newNumObject===11) //strict
+      console.table(newNumObject)
+      console.log(newNumObject * 11) //연산가능.
+      console.log(newNumObject === 11) //strict
       console.log(new Number().constructor.MAX_SAFE_INTEGER)
       console.log(Number.MAX_SAFE_INTEGER);
       //전역변수에 존재하는 객체는 new 연산자로 생성할 수 있는 객체에 모두 존재한다.
       //new 연산자로 존재하는 객체는 전역변수보다 더 많은 데이터를 가진다.
       //전역변수란 자주 사용되는 변수를 미리 생성하는 개념이기 때문에 모두 만들지 않는다.
-
     </script>
-    </main>
-  </body>
+    <h2>내장객체 Number의 전역변수</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>변수명(Property)</th>
+          <th>설명 </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Number.MAX_VALUE</td>
+          <td>넘버가 표현 가능한 가장 큰 수(e308 : 10의 308승 까지 표현가능 )
+            <script>
+              document.write(Number.MAX_VALUE)
+            </script>
+          </td>
+        </tr>
+        <tr>
+          <td>Number.MIN_VALUE</td>
+          <td>넘버가 표현 가능한 가장 소수점이 낮은 수(-e324 : 10의 324승 분의 1 까지 표현가능 )
+            <script>
+              document.write(Number.MIN_VALUE)
+            </script>
+          </td>
+
+        </tr>
+        <tr>
+          <td>Number.NaN</td>
+          <td>숫자가 아님의 값을 검사(하지만 Number type),수가 아닌 것을 연산할 때 예) "십"*10
+            <script>
+              document.write(Number.NaN)
+            </script>
+          </td>
+        </tr>
+        <tr>
+          <td>Number.MAX_SAFE_INTEGER</td>
+          <td>넘버가 표현 가능한 가장 큰 정수(짤리지 않는 수)
+            <script>
+              document.write(Number.MAX_SAFE_INTEGER)
+            </script>
+          </td>
+        </tr>
+        <tr>
+          <td>Number.MIN_SAFE_INTEGER</td>
+          <td>넘버가 표현 가능한 가장 작은   정수(짤리지 않는 수)
+            <script>
+              document.write(Number.MIN_SAFE_INTEGER)
+            </script>
+        </tr>
+        <tr></tr>
+      </tbody>
+    </table>
+    <h2>Number 내장객체의 메소드</h2>
+<table>
+  <thead>
+    <tr>
+      <th>메소드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Number.isNaN()</td>
+      <td>
+        전달된 값이 NaN인지 검사. 숫자가 아니면 (NaN)이면 true 반환.
+        예1)Number.isNaN("") <script>document.write(Number.isNaN("asd"*11))</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Number.isFinite</td>
+      <td>
+        전달된 값이 유한 숫자인지 검사(유한:true / 무한:false)
+        예1)Number.isFinite(10/0) <script>document.write(Number.isFinite(3/0))</script>
+        예2)Number.isFinite(10/2) <script>document.write(Number.isFinite(10/2))</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Number.isSafeInteger</td>
+      <td>
+        안전한 정수인지 검사
+        예1)9e+20: <script>document.write(Number.isSafeInteger(9e+20))</script>
+        예2)9e+15: <script>document.write(Number.isSafeInteger(9e+15))</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Number.</td>
+      <td>
+        <script>document.write()</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Number.isInteger</td>
+      <td>
+        전달된 값이 정수인지 판단(정수:true, 소수,NaN,Infinity,boolean:false)
+        예1)Number.isInteger(Math.PI)<script>document.write(Number.isInteger(Math.PI))</script>
+        예2)Number.isInteger(-222)<script>document.write(Number.isInteger(-222))</script>
+        예3)Number.isInteger(-222.0)<script>document.write(Number.isInteger(-222.00000000000000000001))</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Number.parseFloat()</td>
+      <td>
+        문자열의 부동 소수를 찾아서 소수점 숫자를 반환.(공백으 포함한 문자열 앞에 소수를 찾아서 부동소수로 반환)
+        예1)Number.parseFloat("3.14abcdefskdfj") : <script>document.write(Number.parseFloat("3.sdf1sdfsd4abcdefskdfj"))</script>
+        예1)Number.parseFloat("alksd3.14") : <script>document.write(Number.parseFloat("alksd3.14"))</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Number.parseInt()</td>
+      <td>
+        문자열의 정수를 찾아서 반환
+        예1)Number.parseInt() : <script>document.write(Number.parseInt("3.sdf1sdfsd4abcdefskdfj"))</script>
+        예2)Number.parseint("alksd3.14") : <script>document.write(Number.parseInt("alksd3.14"))</script>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+</body>
+
+
+
+
+
+
 </html>
