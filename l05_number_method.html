@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <main>
+      <h1>Number 객체의 전역 변수와 함수</h1>
+      <p>기본데이터 타입인 number는 Number라는 타입의 객체를 가진다.
+      이떄 기본데이터 타입을 보조하기 위해 Number가 내장 객체(new 연산자없이 사용할 수 있는 객체)
+    로 존재하며 다양한 전역변수(어디든 사용할 수 있는)와 메소드를 제공하고 있다.</p>
+    <script>
+      let newNumObject = new Number(11) //기본데이터 타입인 11보다 더 많은 정보를 가짐.
+      //new :객체를 생성하겠다.
+      //ClassName(): 생성자(new 연산자로 객체를 생성할 때 꼭 호출해야한다.
+      console.log(newNumObject)
+      console.log(newNumObject*11) //연산가능.
+      console.log(newNumObject===11) //strict
+      console.log(new Number().constructor.MAX_SAFE_INTEGER)
+      console.log(Number.MAX_SAFE_INTEGER);
+      //전역변수에 존재하는 객체는 new 연산자로 생성할 수 있는 객체에 모두 존재한다.
+      //new 연산자로 존재하는 객체는 전역변수보다 더 많은 데이터를 가진다.
+      //전역변수란 자주 사용되는 변수를 미리 생성하는 개념이기 때문에 모두 만들지 않는다.
+
+    </script>
+    </main>
+  </body>
+</html>
