@@ -201,7 +201,150 @@
       </tr>
     </tbody>
   </table>
-  <h2>내장 객체 Math의 전역변수와 함수를 알아보자.</h2>
+  <h2>내장 객체 Math의 전역변수와 함수를 알아보자.(Math.PI) :
+  <script>
+    document.write(Math.PI)
+  </script>
+  </h2>
+  <p>전역변수 E, PI, LOG*2E, LOG10E,SQRT2,SQRT1_2,LN2...수학에서 사용하는 상수가 존재</p>
+  <h3>Math.method</h3>
+  <!-- tale>(thead>tr>th*3)+tbody>(tr>td*3)*10 -->
+  <tale>
+    <thead>
+      <tr>
+        <th>method</th>
+        <th>설명</th>
+        <th>예시</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Math.abs()</td>
+        <td>절대값을 반환.</td>
+        <td>-10의 절대값 Math.abs(-10)
+          <script>
+            document.write(Math.abs(-10))
+          </script>
+          Math.abs(10)
+            <script>
+              document.write(Math.abs(10))
+            </script>
+            Math.abs(-10.23)
+              <script>
+                document.write(Math.abs(-10.23))
+              </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Math.pow(a,b)</td>
+        <td>a의 지수 b(a를 b번 거듭제공)</td>
+        <td>
+          Math.pow(2,8) === 2**8
+            <script>
+              document.write(Math.pow(2,8))
+            </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Math.max(args...)</td>
+        <td>제공된 숫자들 중 최대값을 반환.</td>
+        <td>
+          <script>
+            document.write(Math.max(10,2,6,7,8,20,17,14))
+          </script>
+        </td>
+        <td>Math.max([10,8,20,17,13])
+          <script>
+            document.write(Math.max(...[10,8,20,17,13]))
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Math.min(args...)</td>
+        <td>제공된 숫자들 중 최소값을 반환.</td>
+        <td>Math.min([10,8,20,17,13])
+          <script>
+            document.write(Math.min(...[10,8,20,17,13]))
+          </script>
+        </td>
+        <td>Math.min([-10,8,-20,17,-133])
+          <script>
+            document.write(Math.min(...[-10,8,-20,17,-133]))
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Math.random()</td>
+        <td>0부터 1사이의 부동소수점 난수를 얻는다.</td>
+        <td>Math.random():
+          <script>
+          document.write(Math.random())
+        </script>
+      </td>
+      <td>Math.random()*100: /Math.round 반올림.
+        <script>
+        document.write(Math.random()*100)
+      </script>
+    </td>
+      </tr>
+      <tr>
+        <td>Math.round()</td>
+        <td>반올림한 정수값을 반환.</td>
+        <td>Math.round(14.5)
+          <script>
+          document.write(Math.round(14.5))
+          </script>
+          Math.round(14.435)
+            <script>
+            document.write(Math.round(14.435))
+            </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Math.floor()</td>
+        <td>내림한 정수값을 반환.</td>
+        <td>Math.floor(14.5)
+          <script>
+          document.write(Math.floor(14.5))
+          </script>
+          Math.floor(14.435)
+            <script>
+            document.write(Math.floor(14.435))
+            </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Math.trunc()</td>
+        <td>정수만 반환</td>
+        <td>Math.trunc(14.5)
+          <script>
+          document.write(Math.trunc(14.5))
+          </script>
+          Math.trunc(14.435)
+            <script>
+            document.write(Math.trunc(14.435))
+            </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Math.sign()</td>
+        <td>양수인지 음수인지 확인(양수면 1,음수면-1,0이면 0을 반환)</td>
+        <td>Math.sign(-14.5)
+          <script>
+          document.write(Math.sign(-14.5))
+          </script>
+          Math.sign(14.5)
+            <script>
+            document.write(Math.sign(14.5))
+            </script>
+            Math.sign(0)
+              <script>
+              document.write(Math.sign(0))
+              </script>
+        </td>
+      </tr>
+    </tbody>
+  </tale>
 </body>
 
 
