@@ -198,12 +198,12 @@
       </li>
       <script>
         function birthdayAlert(e) {
-          let eventNumber = prompt("1~120의 숫자를 입력하세요");
+          let eventNumber = prompt("나이를 입력하세요(1~120)");
           const numberInput = Number(eventNumber);
-          console.log(typeof(numberInput));
+          //console.log(typeof(numberInput));
           if (isNaN(numberInput)) {
             alert('숫자만 입력하세요')
-            let eventNumber2 = Number(prompt('1~120의 숫자를 입력하세요'));
+            let eventNumber2 = Number(prompt('나이를 입력하세요(1~120)'));
             return alert('당신이 태어난 해는 : ' + (2021 - eventNumber2 + 1) + " 년 입니다");
           } else {
             //console.log(numberInput);
