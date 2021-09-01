@@ -63,8 +63,8 @@
         <td>
           "스파게티 피자 된장찌개 샌드위치 "
           <script>
-          let foodList = "스파게티 피자 된장찌개 샌드위치"
-            document.write(foodList.slice(foodList.length-5, foodList.length))
+            let foodList = "스파게티 피자 된장찌개 샌드위치"
+            document.write(foodList.slice(foodList.length - 5, foodList.length))
           </script>
           <br>"스파게티 피자 된장찌개 샌드위치 "
           <script>
@@ -90,7 +90,7 @@
           </script>
           <br> "스파게티 피자 된장찌개 샌드위치 "
           <script>
-            document.write(foodList.substring(foodList.length-4))
+            document.write(foodList.substring(foodList.length - 4))
           </script>
         </td>
       </tr>
@@ -109,7 +109,7 @@
           </script>
           <br> "스파게티 피자 된장찌개 샌드위치 "
           <script>
-            document.write(foodList.substr(foodList.length-5, 5))
+            document.write(foodList.substr(foodList.length - 5, 5))
           </script>
         </td>
       </tr>
@@ -117,32 +117,132 @@
         <td>startsWith() </td>
         <td>특정문자열로 시작하는지 여부.</td>
         <td>
-        foodList.startsWith("스") :
+          foodList.startsWith("스") :
           <script>
             document.write(foodList.startsWith("스"));
           </script>
           foodList.startsWith("된장",8) :
-            <script>
-              document.write(foodList.startsWith("된장",8));
-            </script>
+          <script>
+            document.write(foodList.startsWith("된장", 8));
+          </script>
         </td>
       </tr>
       <tr>
         <td>endsWith(String,position=String.length) </td>
-        <td>끝에서부터 특정문자열로 끝나는지 여부.</td>
+        <td>끝에서부터 특정문자열로 끝나는지 여부.boolean으로 판별.</td>
         <td>
-        foodList.endsWith("위치") :
+          foodList.endsWith("위치") :
           <script>
             document.write(foodList.endsWith("위치"));
           </script>
           foodList.endsWith("샌드위치") :
-            <script>
-              document.write(foodList.endsWith("샌드위치"));
-            </script>
-            foodList.endsWith("된장",10) :
-              <script>
-                document.write(foodList.endsWith("된장",10));
-              </script>
+          <script>
+            document.write(foodList.endsWith("샌드위치"));
+          </script>
+          foodList.endsWith("된장",10) :
+          <script>
+            document.write(foodList.endsWith("된장", 10));
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td>includes(String,start position=0)</td>
+        <td>특정 위치부터 특정 문자열이 있는지 여부,boolean으로 판별.</td>
+        <td>
+          foodList.includes("찌개");
+          <script>
+            document.write(foodList.includes("찌개"));
+          </script>
+          foodList.includes("찌개",12);
+          <script>
+            document.write(foodList.includes("찌개", 12));
+          </script>
+
+        </td>
+      </tr>
+      <tr>
+        <td>indexOf(String,start position=0)</td>
+        <td>특정 위치부터 특정 문자열이 있는지 검색 후 시작지점(index)반화, 없으면 -1반환</td>
+        <td>
+          foodList.indexOf("피자 ")
+          <script>
+            //let foodList = "스파게티 피자 된장찌개 샌드위치"
+            document.write(foodList.indexOf("피자,6"));
+          </script>
+          foodList.indexOf("피자 ")
+          <script>
+            //let foodList = "스파게티 피자 된장찌개 샌드위치"
+            document.write(foodList.indexOf("피자"));
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td>lastIndexOf(String,start position=0)</td>
+        <td>특정 위치부터 역방향으로, 검색 후 시작지점(index)반환, 없으면 -1반환
+          indexOf는 중복시 처음것 반환, lastIndexOf는 마지막 것 반환.</td>
+        <td>
+          foodList.lastIndexOf("Brave")
+          <script>
+            //let foodList = "스파게티 피자 된장찌개 샌드위치"
+            let test = "Brave new world,Brave";
+            document.write(test.lastIndexOf("Brave"));
+          </script>
+          foodList.lastIndexOf("Brave")
+          <script>
+            //let test="Brave new world";
+            document.write(test.lastIndexOf("Brave"));
+          </script>
+          <br> foodList.indexOf("Brave")
+          <script>
+            //let test="Brave new world";
+            document.write(test.indexOf("Brave"));
+          </script>
+          <br> foodList.indexOf("new")
+          <script>
+            //let test="Brave new world";
+            document.write(test.lastIndexOf("new", 5));
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td>split(String,limit length)</td>
+        <td>특정 문자열을 기준으로 나누어 배열로 만든다.(길이를 정할 수 있다.)</td>
+        <td>
+          <script>
+            //let foodList = "스파게티 피자 된장찌개 샌드위치"
+            console.log(foodList);
+            console.log(foodList.split(" ", 2));
+            document.write(foodList.split(" ").join("@"));
+          </script>
+          <br> foodList.split(",")
+          <script>
+            document.write(foodList.split(","));
+          </script>
+
+        </td>
+      </tr>
+      <tr>
+        <td>replace()</td>
+        <td>특정 문자열이나 정규식 패턴으로 검색 후 다른 문자열로 변환한 값을 반환
+        원래 배열의 데이터가 바뀌는게 아님.검색된 값 1개만 바꿈.
+        </td>
+        <td>
+          foodList.replace("된장찌개","스테이크")
+          <script>
+            //let foodList = "스파게티 피자 된장찌개 샌드위치"
+            document.write(foodList.replace("된장찌개","스테이크"));
+            console.log(foodList);
+          </script>
+          foodList.replace(" ",",")
+          <script>
+            //let foodList = "스파게티 피자 된장찌개 샌드위치"
+            document.write(foodList.replace(" ",","));
+          </script>
+          foodList.replace("된장찌개","$& 제외 스테이크 추가")
+          <script>
+            //let foodList = "스파게티 피자 된장찌개 샌드위치"
+            document.write(foodList.replace("된장찌개","$& 제외 스테이크 추가"));
+          </script>
         </td>
       </tr>
     </tbody>
