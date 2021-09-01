@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>js array method</title>
+  </head>
+  <body>
+<main>
+  <h1>자바스크립트 배열의 유용한 메소드 </h1>
+  <script>
+  const a=["b","c","a","z","f","e","h"];
+
+  </script>
+  <p>const a=["b","c","a","z","f","e","h"]; </p>
+  <ul>
+    <li>a.toString(): 쉼표로 구분된 배열의 값을 문자열로 출력한다.
+<script>
+  document.write(a.toString());
+</script>
+    </li>
+    <li>a.join(): 배열의 값을 join 안에 문자열로 결합한 문자열을 출력한다.
+<script>
+  document.write(a.join(" *+* "));
+</script>
+    </li>
+    <li>a.pop() : 배열의 마지막 값을 반환한다. 원배열의 값이 변화함.
+    <script>
+      document.write(`a.pop: ${a.pop()},  a: ${a}`)
+    </script></li>
+    <li>a.push() : 배욜의 마지막에 새 값을 추가한다. 원배열의 값이 변화.
+<script>
+  //a[a.length]= value; 와 동일.
+  a.push("pushValue"); document.write(a);
+</script>
+    </li>
+    <li>a.shift() : 배욜의 첫번째 값을 반환하고 제거한다.. 원배열의 값이 변화.
+<script>
+  a.shift(); document.write(`a,shift() : ${a.shift()}  ,  a: ${a}`);
+</script>
+    </li>
+    <li>a.unshift() : 배욜의 첫번째에 새 값을 추가한다. 원배열의 값이 변화.
+<script>
+  a.unshift("A"); document.write(a);
+</script>
+    </li>
+<li>a.concat([1,2,3]): 배열의 끝네 새로운 배열을 추가한 배열을 반환한다. 원배열 변환 x
+<script>
+  let ab =a.concat([1,2,3]);
+  ; document.write(ab);
+</script>
+</li>
+<li>a.slice(start_index,end_index) : 시작점부터 끝점까지의 배열을 반환한다.end_index제외
+<script>
+  let sa = a.slice(2,5); document.write(a); document.write(sa);
+</script>
+</li>
+<li>a.splice(start_index,n(지울갯수),insert_item1(추가요소.)... ) : arr[시작점+1]부터 n개만큼 삭제값을 반환.원배열 변환..
+<script>
+   document.write(`a.splice(4,2) : ${a.splice(4,2)} / a : ${a}`);
+</script>
+<script>
+   document.write(`a.splice(4,0,"추가") : ${a.splice(4,0,"추가","추가2","추가3")} / a : ${a}`);
+</script>
+</li>
+<li>a.sort() : 배열의 요소를 순서대로 정렬만 한다.
+<script>
+  document.write(a.sort())
+</script>
+</li>
+<li>a.reverse() : 배열의 요소를 역순으로 정렬만 한다.
+<script>
+  document.write(a.reverse())
+</script>
+</li>
+  </ul>
+<hr>
+<article class="">
+  <h2>배열 문제</h2>
+  <form class="" action="index.html" method="post">
+    <p>
+    <label>
+블랙 :<input type="checkbox" name="" value="">
+    </label>
+    <label>
+래드 :<input type="checkbox" name="" value="">
+    </label>
+    <label>
+그린 :<input type="checkbox" name="" value="">
+    </label>
+    <label>
+블루 :<input type="checkbox" name="" value="">
+    </label>
+    <label>
+화이트 :<input type="checkbox" name="" value="">
+    </label>
+    <label>
+레몬 :<input type="checkbox" name="" value="">
+    </label>
+    <label>
+오렌지 :<input type="checkbox" name="" value="">
+    </label>
+    </p>
+    <p>
+      <input type="text" name="" value="" placeholder="레몬,화이트">
+    </p>
+  </form>
+<script>
+/*
+onchange""
+
+function(){
+let inputValue = 입력된 값 (예 레몬 화이트) i,j
+inputValue == 체크박스.네임 ->t? state: checked
+document.getElementsByName('name').checked = true
+                          /f? unchecked
+
+
+
+}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+</script>
+
+</article>
+
+<article class="calendar">
+  <h2>달력만들기</h2>
+  <div class="calendar_container">
+    <div class="day">
+
+    </div>
+
+  </div>
+</article>
+
+</main>
+  </body>
+</html>
