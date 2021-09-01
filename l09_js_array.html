@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>js array</title>
+</head>
+
+<body>
+  <h1>자바스크립트의 배열 </h1>
+  <p>여러 변수를 index로 참조해 저장하는 데이터 타입(literator클래스를 상속하고 있다).</p>
+  <p>작성법: const array=[item1,item2,item3,...];(권장.기본데이터타입처럼 사용가능.) </p>
+  <p>작성법2: const array= new Array(item1,item2,item3,...); (권장하지 않음.)</p>
+  <script>
+    const arrayTest = [1, 2, 3, 4, "오", 6.0, 7.5];
+    const arrayTest2 = new Array(1, 2, 3, 4, "오", 6.0, 7.5);
+
+    console.log(JSON.stringify(arrayTest) === JSON.stringify(arrayTest2));
+
+    const arrayCompare = function(array1, array2) { //익명함수를 변수가 참조하는 형태의 함수 선언//
+      if (array1.length !== array2.length) {
+        return false;
+      }
+      for (let i in array1) {
+        console.log(array1[i]!==array2[i]);
+        if (array1[i] !== array2[i]) {
+          return false
+        }
+      }
+      return true
+    }
+    arrayCompare(arrayTest, arrayTest2);
+    //function arrayCompare(){}과 동일.
+    //console.log(arrayTest)
+    //console.log(arrayTest2)
+
+    //console.log(arrayTest[0]===arrayTest2[0]);
+  </script>
+</body>
+
+</html>
