@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calendar Practice</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="calender">
+      <div class="header">
+        <button type="previewBtn" onclick="prevCall()" >이전달</button>
+        <div class="title">
+          <div class="yearTitle"></div>
+          <div class="monthTitle"></div>
+        </div>
+        <button type="nextBtn" onclick="nextCall()">다음달</button>
+      </div>
+      <div class="main">
+        <div class="days">
+          <div class="day">Sun</div>
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+        </div>
+        <div class="dates"></div>
+      </div>
+    </div>
+    <script src='calendar.js'></script>
+  </body>
+</html>

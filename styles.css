@@ -1,0 +1,74 @@
+:root {
+  /* base color을 정의.  */
+  --bg-color: #f6f6f6;
+  --line-color: #aaaaaa;
+  --sat-color: #ffe2e2;
+  --sun-color: #ffc7c7;
+  --today-color: #efbbcf;
+  --font:
+}
+
+body {
+  padding: : 0;
+  margin: 0;
+  background-color: rgba(144, 100, 190, .4)
+}
+
+button {}
+
+.header {
+  display: flex;
+  font-size: 40px;
+  justify-content: space-around;
+  /*아이템을 일정한 간격으로 배치     */
+  align-items: center;
+  padding-bottom: 12px;
+  margin: 12px 24px 12px 24px;
+  border-bottom: 2px solid var(--line-color);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 24px 0px 24px
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.date, .day {
+  text-align: center;
+  width: calc(100%/7); /*width 를 7등분 */
+  padding: 16px 0 16px 0;
+  box-sizing: border-box;
+}
+
+.date:nth-child(7n), .day:nth-child(7n){
+  background-color: var(--sat-color);
+  color: blue;
+}
+
+.date:nth-child(7n+1), .day:nth-child(7n+1){
+  background-color: var(--sun-color);
+  color: red;
+}
+
+.today{
+  border: 2px solid var(--today-color) !important;
+}
