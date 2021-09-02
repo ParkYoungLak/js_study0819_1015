@@ -4,14 +4,14 @@
   --line-color: #aaaaaa;
   --sat-color: #ffe2e2;
   --sun-color: #ffc7c7;
-  --today-color: #efbbcf;
+  --today-color: #eabccf;
   --font:
 }
 
 body {
   padding: : 0;
   margin: 0;
-  background-color: rgba(144, 100, 190, .4)
+  background-color: rgba(144, 200, 190, .4)
 }
 
 button {}

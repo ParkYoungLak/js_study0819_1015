@@ -76,28 +76,28 @@
 <hr>
 <article class="">
   <h2>배열 문제</h2>
-  <form class="" action="index.html" method="post">
+  <form class="" name="colorCheckForm" action="index.html" method="post">
     <p>
     <label>
-블랙 :<input type="checkbox" name="" value="">
+블랙 :<input type="checkbox" name="colorCheck" value="블랙">
     </label>
     <label>
-래드 :<input type="checkbox" name="" value="">
+래드 :<input type="checkbox" name="colorCheck" value="레드">
     </label>
     <label>
-그린 :<input type="checkbox" name="" value="">
+그린 :<input type="checkbox" name="colorCheck" value="그린">
     </label>
     <label>
-블루 :<input type="checkbox" name="" value="">
+블루 :<input type="checkbox" name="colorCheck" value="블루">
     </label>
     <label>
-화이트 :<input type="checkbox" name="" value="">
+화이트 :<input type="checkbox" name="colorCheck" value="화이트">
     </label>
     <label>
-레몬 :<input type="checkbox" name="" value="">
+레몬 :<input type="checkbox" name="colorCheck" value="레몬">
     </label>
     <label>
-오렌지 :<input type="checkbox" name="" value="">
+오렌지 :<input type="checkbox" name="colorCheck" value="오렌지">
     </label>
     </p>
     <p>
@@ -114,16 +114,30 @@ inputValue == 체크박스.네임 ->t? state: checked
 document.getElementsByName('name').checked = true
                           /f? unchecked
 
-
-
+}
+*/
+var colorChecks=document.forms.colorCheckForm.colorCheck;
+console.log(colorChecks);
+let colorChecks2 = document.querySelectorAll("[type=checkbox]");
+console.log(colorChecks2);
+for(let colorCheck of colorChecks){
+  console.log(colorChecks.value);
 }
 
+const test=function(checkButton){
+  let textColors = checkButton.form.textColors.value;
+  let colorList = textColors.split(",");
+  for(let i  in colorList){
+    console.log(i+";"+colorList[i]);
+    for(let colorCheck of colorChecks){
+      console.log(`colorCheck.value : ${colorCheck.value} / colorList[${i}] : ${colorList[i]}`);
+      if(colorCheck.value==colorList[i]){
+        colorCheck.checked=true;
+      }
+    }
+  }
 
-
-*/
-
-
-
+}
 
 
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>js function</title>
+</head>
+
+<body>
+  <h1>자바스크립트의 함수</h1>
+  <p>함수는 프로그래밍 언어에서 가장 중요한 실행을 담당한다. 함수는 실행의 그룹화된 가장 작은 단위로 보통은 사용되나
+  함수지향 언어인 자바스크립트에서는 클래스처럼 사용되기도 한다.</p>
+  <p>자바스크립트의 실행은 순서를 따르지만 함수는 어디에 선언해도 참조할 수 있다.</p>
+  <p>자바스크립트는 같은 이름의 함수(파라미터가 갯수가 다른)를 여러개 가질수 없다(오버로딩x).떄문에 함수를 선언할때 상수에
+  익명함수를 참조하는 형식이 좋다. 예) const a = function(){}</p>
+  <p>
+    기본 선언법: <br>function name(parameter){
+    실행 내용 <br>
+    return 값을 반환하고 함수를 종료함. <br>
+    }
+  </p>
+  <p>익명함수란 : 인스턴스 즉시 쓰고 사라질 함수로 보통은 매개변수로 쓰일 때 가볍게 선언하려 만들어진다.
+  예) document.onclick= function(){} 익명함수.이벤트시 발생하고 사라진다. const 로 선언한 함수는 이름을 가짐.</p>
+  <p>ES6 에서 추가된 arrow function : const a=(p)=>{return};
+  <br>ex) document.onlclick=()=>{};
+  <br>document.addEventListner("onlclick",()=>{});</p>
+  <b id="increaseNum"></b>
+<script>
+  let n = 0;
+  window.setInterval(()=>{document.getElementById('increaseNum').innerText=++n;},1000)
+</script>
+<p>const a= function(a,b=default): 함수의 매개변수는 default 값을 가질 수 있다.
+이때 a는 function(a),function(a,b) 둘다 선언한것과 같으니 오버로딩과 같다.(ES6에 추가.)
+</p>
+<p>const a=function(...args){}; a(1,2,3,4,5...) ...args는 함수의 매개변수 개수를 제한하지 않는다.
+이때 args 는 배열 타입이다.</p>
+
+  <script>
+    //자바스크립트는 똑같은 이름의 함수가 다른 매개변수를 가지면 다른 함수로 인지하지 못한다.
+    //변수가 익명함수를 참조하는 이유 중 하나가 이같은 문제를 야기시키지 않으려는 방법이다.
+    function d(p1,p2="default"){ //매개변수: 함수의 실행을 동적으로 하기 위한 존재. 매개변수에 기본값 가능.
+      let a = p1;
+      let b = p2;
+      let c = a+b+"실행3";
+      //이때 세미콜론이 실행의 가장 단위.
+      console.log(c);
+    }
+d("안녕","하세요"); //함수는 여러 실행을 한번에 묶어서 한다.
+
+function r(a,b,c){
+  let sum = a+b+c;
+  return sum;  //return 은 함수의 마지막 선언으로 밑의 실행은 무의미하다.
+}
+let sum =r(1,2,3);
+
+console.log(sum)
+console.log(r(4,5,6))
+
+function sumTest(a,b,c,d){
+  //undefined+숫자 = 연산불가 NaN
+  //boolean(undefined) => false(0,'',null,NaN, undefined)
+  let sum=0;
+  if(!b&&!c&&!d){
+    sum += a;
+  }
+  else if(!c&&!d){
+    sum = a+b;
+  }
+  else if(!d){
+    sum += a+b+c;
+  }
+  return sum
+}
+
+//console.log(`sumTest(1,2,3,4) : ${sumTest(1,2,3,4)}`)
+//console.log(`sumTest(1,2,3) : ${sumTest(1,2,3,)}`)
+//console.log(`sumTest(1,2,3) : ${sumTest(1,2)}`)
+
+function testSum3(...params){
+let sum=0;
+for(let p of params){
+  sum+=p;
+}
+console.log(sum);
+/*
+  return params.reduce((a, b)=> {
+    return a+ b;
+  })
+  */
+}
+
+//testSum3(1,2,3,4)
+
+
+
+
+  </script>
+</body>
+
+</html>
