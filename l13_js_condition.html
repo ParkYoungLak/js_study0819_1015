@@ -1,74 +1,147 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>자바스크립트의 조건문</title>
-  </head>
-  <body>
-    <main>
-      <h1>자바스크립트의 조건문</h1>
-      <p>블럭안의 실행을 조건에 따라 동적으로 선택되게 하는 조건문.if, switch, 삼항연산자.</p>
-      <article>
-        <h2>if 조건문</h2>
-        <p>if(condition){실행} : 조건이 참(true)이면 블럭을 실행한다.</p>
-        <p>if(){}else{} :if 의 조건이 맞지 않으몀ㄴ else의 블럭을 실행한다.</p>
-        <p>if(조건1){실행}else if(조건2){실행}else{실 : 1번조건이 만족하지 않으면 2번조건 실행
-         모두 만족하지 않으면 else 이하를 실행.}</p>
-        <p><b idea id="ifTestMessage"></b></p>
-        <ul>
-          <li>if(value &lt  50){}
-            <input type="text"  value="" onchange="ifTest(this.value)" placeholder="50보다 작고 20보다 큰수  .">
 
-            <script>
-              let ifTestMessage = document.getElementById("ifTestMessage");
-              const ifTest = function(v){
-                if(v < 50 && v > 20){
-                  ifTestMessage.innerText=`${v}를 입력하셨습니다.`
-                }else {return ifTestMessage.innerText="큰수 또는 작은 수를 다시입력하세요";}
-                console.log(v)
+<head>
+  <meta charset="utf-8">
+  <title>자바스크립트의 조건문</title>
+</head>
+
+<body>
+  <main>
+    <h1>자바스크립트의 조건문</h1>
+    <p>블럭안의 실행을 조건에 따라 동적으로 선택되게 하는 조건문.if, switch, 삼항연산자.</p>
+    <article>
+      <h2>if 조건문</h2>
+      <p>if(condition){실행} : 조건이 참(true)이면 블럭을 실행한다.</p>
+      <p>if(){}else{} :if 의 조건이 맞지 않으몀ㄴ else의 블럭을 실행한다.</p>
+      <p>if(조건1){실행}else if(조건2){실행}else{실 : 1번조건이 만족하지 않으면 2번조건 실행
+        모두 만족하지 않으면 else 이하를 실행.}</p>
+      <p><b idea id="ifTestMessage"></b></p>
+      <ul>
+        <li>if(value &lt 50){}
+          <input type="text" value="" onchange="ifTest(this.value)" placeholder="50보다 작고 20보다 큰수  .">
+
+          <script>
+            let ifTestMessage = document.getElementById("ifTestMessage");
+            const ifTest = function(v) {
+              if (v < 50 && v > 20) {
+                ifTestMessage.innerText = `${v}를 입력하셨습니다.`
+              } else {
+                return ifTestMessage.innerText = "큰수 또는 작은 수를 다시입력하세요";
               }
-            </script>
-          </li>
+              console.log(v)
+            }
+          </script>
+        </li>
 
-          <li>50보다크거나 20보다 작은수?
-<p><b idea id="ifTestMessage2"></b></p>
-            <input type="text"  value="" onchange="ifTest2(this.value)" placeholder="50보다 크거나20보다 작은수...  .">
+        <li>50보다크거나 20보다 작은수?
+          <p><b idea id="ifTestMessage2"></b></p>
+          <input type="text" value="" onchange="ifTest2(this.value)" placeholder="50보다 크거나20보다 작은수...  .">
 
-            <script>
-              let ifTestMessage2 = document.getElementById("ifTestMessage2");
-              const ifTest2 = function(v){
-                if(v > 50 || v < 20){
-                  ifTestMessage2.innerText=`${v}를 입력하셨습니다.`
-                }
-                 else if(v<=50 && v>=20){
-                   ifTestMessage2.innerText="20이상 50이하,참 잘했어요";
-                 }
-                else {return ifTestMessage2.innerText="다시 숫자를 입력하세요";}
-                console.log(v)
+          <script>
+            let ifTestMessage2 = document.getElementById("ifTestMessage2");
+            const ifTest2 = function(v) {
+              if (v > 50 || v < 20) {
+                ifTestMessage2.innerText = `${v}를 입력하셨습니다.`
+              } else if (v <= 50 && v >= 20) {
+                ifTestMessage2.innerText = "20이상 50이하,참 잘했어요";
+              } else {
+                return ifTestMessage2.innerText = "다시 숫자를 입력하세요";
               }
-            </script>
-          </li>
+              console.log(v)
+            }
+          </script>
+        </li>
 
-          <li>10~20 || 30~40
-<p><b idea id="ifTestMessage3"></b></p>
-            <input type="text"  value="" onchange="ifTest3(this.value)" placeholder="10~20 || 30~40">
+        <li>10~20 || 30~40
+          <p><b idea id="ifTestMessage3"></b></p>
+          <input type="text" value="" onchange="ifTest3(this.value)" placeholder="10~20 || 30~40">
 
-            <script>
-              let ifTestMessage3 = document.getElementById("ifTestMessage3");
-              const ifTest3 = function(v){
-                if((v >= 10 && v <= 20) ||( v>=30 && v<=40)){
-                  ifTestMessage3.innerText=`${v}를 입력하셨습니다.`
-                }else if(v>20 && v<30){
-                  return ifTestMessage3.innerText="20보다 작거나 30보다 큰 숫자를 입력하세요";
-                }
-                else {return ifTestMessage3.innerText="다시 입력하세요";}
-                console.log(v)
+          <script>
+            let ifTestMessage3 = document.getElementById("ifTestMessage3");
+            const ifTest3 = function(v) {
+              if ((v >= 10 && v <= 20) || (v >= 30 && v <= 40)) {
+                ifTestMessage3.innerText = `${v}를 입력하셨습니다.`
+              } else if (v > 20 && v < 30) {
+                return ifTestMessage3.innerText = "20보다 작거나 30보다 큰 숫자를 입력하세요";
+              } else if (v < 10 || v > 40) {
+                return ifTestMessage3.innerText = "10보다 크거나 40보다 작은 숫자를 입력하세요";
+              } else {
+                return ifTestMessage3.innerText = "다시 입력하세요";
               }
-            </script>
-          </li>
-        </ul>
-      </article>
-    </main>
+              console.log(v)
+            }
+          </script>
+        </li>
+      </ul>
+    </article>
+    <article>
+      <h2>Switch 조건문</h2>
+      <pre>
+            switch (변수){
+              case a: //(변수===a)
+              실행
+                break;
+              case b:
+              실행
+                break;
+                case c:
+                실행
+                  break;
+                  default;
+                  실행
+               }
+          </pre>
+          <p>스위치 케이스는 엄격한 동등비교(===)를 사용하고, 위에서부터 위치하는 항목을 찾으면 switch는 종료된다.
+          (엄격한 비교 외의 조건을 사용할 수 없다.)</p>
+          <p>if에서 else if문과 동일하게 작동하지만 조건문의 수행 속도가 굉장히 빠르다.</p>
+          <p>조건을 파악하기 굉장히 좋다.</p>
+          <p>
+            <label for="">
+            <select class="" name="" onchange="switchTest(this.value)">
+              <option value="0">입력값:0</option>
+              <option value="1">입력값:1</option>
+              <option value="2">입력값:2</option>
+              <option value="3">입력값:3</option>
+            </select>
+            </label>
+          </p>
+    </article>
+    <script>
+      let x=0;
+      function switchTest(){
+        switch (Number(x)){
+          case 0:
+          console.log("입력한 값은 0입니다.");
+          break;
+          case 1:
+          console.log("입력한 값은 1입니다.");
+          break;
+          case 2:
+          console.log("입력한 값은 2입니다.");
+          break;
+          default:
+          console.log("잘못된 값을 입력했습니다.")
+        }
+      }
 
-  </body>
+      switchTest(0)
+
+      function IfTest(){
+        if (x===0){
+          console.log("입력한 값은 0입니다.")
+        }
+        else if(x===1){
+          console.log("입력한 값은 1입니다.")
+        }
+        else if(x===2){
+          console.log("입력한 값은 2입니다.")
+        }else{}
+      }
+
+    </script>
+  </main>
+
+</body>
+
 </html>
