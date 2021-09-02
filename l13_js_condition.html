@@ -11,6 +11,9 @@
       <article>
         <h2>if 조건문</h2>
         <p>if(condition){실행} : 조건이 참(true)이면 블럭을 실행한다.</p>
+        <p>if(){}else{} :if 의 조건이 맞지 않으몀ㄴ else의 블럭을 실행한다.</p>
+        <p>if(조건1){실행}else if(조건2){실행}else{실 : 1번조건이 만족하지 않으면 2번조건 실행
+         모두 만족하지 않으면 else 이하를 실행.}</p>
         <p><b idea id="ifTestMessage"></b></p>
         <ul>
           <li>if(value &lt  50){}
@@ -21,7 +24,7 @@
               const ifTest = function(v){
                 if(v < 50 && v > 20){
                   ifTestMessage.innerText=`${v}를 입력하셨습니다.`
-                }else {return ifTestMessage.innerText="다시입력하세요";}
+                }else {return ifTestMessage.innerText="큰수 또는 작은 수를 다시입력하세요";}
                 console.log(v)
               }
             </script>
@@ -36,7 +39,29 @@
               const ifTest2 = function(v){
                 if(v > 50 || v < 20){
                   ifTestMessage2.innerText=`${v}를 입력하셨습니다.`
-                }else {return ifTestMessage2.innerText="다시입력하세요";}
+                }
+                 else if(v<=50 && v>=20){
+                   ifTestMessage2.innerText="20이상 50이하,참 잘했어요";
+                 }
+                else {return ifTestMessage2.innerText="다시 숫자를 입력하세요";}
+                console.log(v)
+              }
+            </script>
+          </li>
+
+          <li>10~20 || 30~40
+<p><b idea id="ifTestMessage3"></b></p>
+            <input type="text"  value="" onchange="ifTest3(this.value)" placeholder="10~20 || 30~40">
+
+            <script>
+              let ifTestMessage3 = document.getElementById("ifTestMessage3");
+              const ifTest3 = function(v){
+                if((v >= 10 && v <= 20) ||( v>=30 && v<=40)){
+                  ifTestMessage3.innerText=`${v}를 입력하셨습니다.`
+                }else if(v>20 && v<30){
+                  return ifTestMessage3.innerText="20보다 작거나 30보다 큰 숫자를 입력하세요";
+                }
+                else {return ifTestMessage3.innerText="다시 입력하세요";}
                 console.log(v)
               }
             </script>
