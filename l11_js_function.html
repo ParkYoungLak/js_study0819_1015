@@ -17,7 +17,13 @@
     기본 선언법: <br>function name(parameter){
     실행 내용 <br>
     return 값을 반환하고 함수를 종료함. <br>
-    }
+    }<br>선언시 어디서든 참조가능한 함수가 된다.(마치 내장객체처럼)
+    <br>오버로딩되지 않는다. 만약 같은 이름의 함수를 정의하면 마지막 정의한 함수만 호출된다.
+  </p>
+  <p>함수표현식(function expression)
+const name = function(parameter){ 실행}; <br> 변수가 함수를 참조한 이후 사용가능해 진다.
+<br>변수가 엔진에서 관리되는 것처럼 사용하지 않으면 삭제된다.<br>계속 사용될 함수가 아니면 표현식을 사용하는 것이 유리하다.(메모리관리면에서도)
+<br>오버로딩 되지 않는 자바스크립트 특성상 함수의 이름이 명확해져서 오류를 줄여준다.(자바처럼 같은 이름의 함수를 오버로딩하듯 사용하는 것->오류지만 동작은 된다.)
   </p>
   <p>익명함수란 : 인스턴스 즉시 쓰고 사라질 함수로 보통은 매개변수로 쓰일 때 가볍게 선언하려 만들어진다.
   예) document.onclick= function(){} 익명함수.이벤트시 발생하고 사라진다. const 로 선언한 함수는 이름을 가짐.</p>
@@ -34,6 +40,11 @@
 </p>
 <p>const a=function(...args){}; a(1,2,3,4,5...) ...args는 함수의 매개변수 개수를 제한하지 않는다.
 이때 args 는 배열 타입이다.</p>
+<p><script>
+  document.write(`typeof ()=>{} : ${typeof (()=>{})}`);
+  document.write(`typeof function(){} : ${typeof (function(){})}`);
+  document.write(`typeof new Function(){} : ${typeof (new Function("a","b","return a+b"))}`);
+</script></p>
 
   <script>
     //자바스크립트는 똑같은 이름의 함수가 다른 매개변수를 가지면 다른 함수로 인지하지 못한다.
