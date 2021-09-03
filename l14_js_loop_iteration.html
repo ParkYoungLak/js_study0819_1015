@@ -38,23 +38,45 @@
   }
   function bubbleSort(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = 0; j < arr.length - 1; j++) {
+    for (let j = 0; j < arr.length - i; j++) {
       if (arr[j + 1] < arr[j]) {
         let tempStay = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = tempStay;
-        console.log(i+"/"+j+" : "+tempStay)
+        //console.log(i+"/"+j+" : "+tempStay)
       }
     }
   }
 }
-bubbleSort(a);
-console.log(a);
+let arr1 = [100,2,-20,3,13,1,0,11,20]
+//제일 큰 수가 [0] 그다음 큰수가 [0+1]...제일 작은수[length-1]
+//a[i]<a[i+1]  unshift(a[i+1])? pop(a[i+1])
+
+function arrSearch(arr){
+  let result = '';
+
+  for(let i= 0; i<arr.length; i++){
+    if(arr[i]<arr[i+1]){
+
+      result+=arr[i+1].push
+console.log(result)
+      //result = result+arr[i+1].push;
+    }
+    result+=arr[i].push;
+  }
+  return result;
+}
+
+arr1.sort(function(a,b){return b-a})
+
+
+
+
+
+
 
 
 document.write(max);
-
-
   </script>
 </ul>
   </article>
