@@ -49,8 +49,8 @@
   }
 }
 let arr1 = [100,2,-20,3,13,1,0,11,20]
-//제일 큰 수가 [0] 그다음 큰수가 [0+1]...제일 작은수[length-1]
-//a[i]<a[i+1]  unshift(a[i+1])? pop(a[i+1])
+/*제일 큰 수가 [0] 그다음 큰수가 [0+1]...제일 작은수[length-1]
+a[i]<a[i+1]  unshift(a[i+1])? pop(a[i+1])
 
 function arrSearch(arr){
   let result = '';
@@ -66,17 +66,26 @@ console.log(result)
   }
   return result;
 }
+*/
+const descSort = arr1.sort(function(a,b){return b-a})
+console.log(descSort)
 
-arr1.sort(function(a,b){return b-a})
+for(let i=0;i<5;i++){
+  for(let i=0; i<5 ; i++){
+    document.write("*");
+  }
+  document.write("<br>");
+  }
 
+let Stars = '';
+for(i=5; i>=0;i--){
+  for(j=1;j<=i;j++){
+    Stars+='*';
+  }
+Stars+='\n';
+console.log(Stars)
+}
 
-
-
-
-
-
-
-document.write(max);
   </script>
 </ul>
   </article>
