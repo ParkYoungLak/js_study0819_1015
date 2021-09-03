@@ -1,97 +1,213 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>js loop iteration</title>
-  </head>
-  <body>
-<main>
-  <h1>자바스크립트의 루프와 반복.</h1>
-  <p>for, for in, for of, while, dowhile 반복문(iteration statements)이 있다.</p>
-  <p>동일한 명령을 일정 횟수만큼 방복하기 위해 작성되는 문법.대체로 검사식에 많이 사용된다.</p>
-  <article>
-    <h2>for 반복문</h2>
-    <p>for(초기문; 조건문; 증감문){반복실행} : for는 조건이 true일 때 반복실행한다.</p>
-    <script>
-      let n=0;
-      for(let i=0; i<10; i++){
-        console.log(`i : ${i}`)
-      }
-      while (n<10) {
-        console.log(`n : ${n}`)
-        n++;
-      }
 
-    </script>
-<ul>
-  <li>[11,2,20,3,13,1,0,-20]의 max값 찾기</li>
-  <script>
-    let a = [11,2,20,3,13,1,0,-20];
-    let b = 10;
-    let max = -Infinity;
-    max = (max<b)?b:max;
-    console.log(max);
-  for(let i=0; i< a.length; i++){
-    if(max<a[i]){
-      max=a[i];
-    }
-  }
-  function bubbleSort(arr) {
-  for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = 0; j < arr.length - i; j++) {
-      if (arr[j + 1] < arr[j]) {
-        let tempStay = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = tempStay;
-        //console.log(i+"/"+j+" : "+tempStay)
-      }
-    }
-  }
-}
-let arr1 = [100,2,-20,3,13,1,0,11,20]
-/*제일 큰 수가 [0] 그다음 큰수가 [0+1]...제일 작은수[length-1]
-a[i]<a[i+1]  unshift(a[i+1])? pop(a[i+1])
+<head>
+  <meta charset="utf-8">
+  <title>js loop iteration</title>
+</head>
 
-function arrSearch(arr){
-  let result = '';
+<body>
+  <main>
+    <h1>자바스크립트의 루프와 반복.</h1>
+    <p>for, for in, for of, while, dowhile 반복문(iteration statements)이 있다.</p>
+    <p>동일한 명령을 일정 횟수만큼 방복하기 위해 작성되는 문법.대체로 검사식에 많이 사용된다.</p>
+    <article>
+      <h2>for 반복문</h2>
+      <p>for(초기문; 조건문; 증감문){반복실행} : for는 조건이 true일 때 반복실행한다.</p>
+      <script>
+        let n = 0;
+        for (let i = 0; i < 10; i++) {
+          console.log(`i : ${i}`)
+        }
+        while (n < 10) {
+          console.log(`n : ${n}`)
+          n++;
+        }
+      </script>
+      <ul>
+        <li>[11,2,20,3,13,1,0,-20]의 max값 찾기</li>
+        <script>
+          let a = [11, 2, 20, 3, 13, 1, 0, -20];
+          let b = 10;
+          let max = -Infinity;
+          max = (max < b) ? b : max;
+          console.log(max);
+          for (let i = 0; i < a.length; i++) {
+            if (max < a[i]) {
+              max = a[i];
+            }
+          }
 
-  for(let i= 0; i<arr.length; i++){
-    if(arr[i]<arr[i+1]){
+          function bubbleSort(arr) {
+            for (let i = 0; i < arr.length - 1; i++) {
+              for (let j = 0; j < arr.length - i; j++) {
+                if (arr[j + 1] < arr[j]) {
+                  let tempStay = arr[j];
+                  arr[j] = arr[j + 1];
+                  arr[j + 1] = tempStay;
+                  //console.log(i+"/"+j+" : "+tempStay)
+                }
+              }
+            }
+          }
+          let arr1 = [100, 2, -20, 3, 13, 1, 0, 11, 20]
+          /*제일 큰 수가 [0] 그다음 큰수가 [0+1]...제일 작은수[length-1]
+          a[i]<a[i+1]  unshift(a[i+1])? pop(a[i+1])
 
-      result+=arr[i+1].push
-console.log(result)
-      //result = result+arr[i+1].push;
-    }
-    result+=arr[i].push;
-  }
-  return result;
-}
-*/
-const descSort = arr1.sort(function(a,b){return b-a})
-console.log(descSort)
+          function arrSearch(arr){
+            let result = '';
 
-for(let i=0;i<5;i++){
-  for(let i=0; i<5 ; i++){
-    document.write("*");
-  }
-  document.write("<br>");
-  }
+            for(let i= 0; i<arr.length; i++){
+              if(arr[i]<arr[i+1]){
 
-let Stars = '';
-for(i=5; i>=0;i--){
-  for(j=1;j<=i;j++){
-    Stars+='*';
-  }
-Stars+='\n';
-console.log(Stars)
-}
+                result+=arr[i+1].push
+          console.log(result)
+                //result = result+arr[i+1].push;
+              }
+              result+=arr[i].push;
+            }
+            return result;
+          }
+          */
+          const descSort = arr1.sort(function(a, b) {
+            return b - a
+          })
+          console.log(descSort)
 
-  </script>
-</ul>
-  </article>
-  <article class="">
-    <h2>for of 반복문</h2>
-  </article>
-</main>
-  </body>
+          for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 5; i++) {
+              document.write("*");
+            }
+            document.write("<br>");
+          }
+
+          let Stars = '';
+          for (i = 5; i >= 0; i--) {
+            for (j = 1; j <= i; j++) {
+              Stars += '*';
+            }
+            Stars += '\n';
+            console.log(Stars)
+          }
+
+          for (i = 1; i < 6; i++) {
+            console.log(' '.repeat(2 - (5 % i)) + '*'.repeat((5 % i) * 2 + 1))
+          }
+        </script>
+      </ul>
+    </article>
+    <article class="">
+      <h2>for in 반복문</h2>
+      <p>for(key in iteration Object){} : key 를 가진 객체가 key 를 받을수 없을 떄까지 반복을 실행</p>
+      <p>JSON(key:value, key,value) =>key를 반환, array[a,c,b] => index를 반환.</p>
+      <ul>
+        <li>[a,b,c]
+          <script>
+            let f = ["a", "b", "c"];
+            for (key in f) {
+              document.write(`key : ${key} ,value : ${f[key]} `);
+            }
+          </script>
+        </li>
+        <li>{name:"최경민", age:36, email:"artistckm86@gmail.com"}
+          <script>
+            let g = {
+              name: "최경민",
+              age: 36,
+              email: "artistckm86@gmail.com"
+            };
+            for (key in g) {
+              document.write(`key : ${key} , value : ${g[key]}`);
+            }
+          </script>
+        </li>
+      </ul>
+    </article>
+    <article class="">
+      <h2>for of 반복문</h2>
+      <p>for( object of iterable Object(하지만 주로 배열))</p>
+      <p>반복 가능한 데이터 타입의 객체에서 더 이상 인자가 나오지 않을 떄까지 반복 실행</p>
+      <p>(iterationObject).next() : next() 는 포인트가 객체 밖에 있다가 내용물이 있으면
+        true 를 반환하고 내용물로 포인트를 옮긴다.그리고 내용물도 반환한다.만약 값이 더이상 나오지 않으면 false를 반환.</p>
+      <p>배열,Map(JSON과 비슷),Set(배열인데 복수의 값을 제거),문자열</p>
+      <p>key 값을 알아내기 힘들다.</p>
+
+      <ul>
+        <li>["a","b","c"];
+          <script>
+            //  f=["a","b","c"];
+            for (v of f) {
+              document.write(`v : ${v} ,  `);
+            }
+
+            let mapTest = new Map();
+            mapTest.set("이름", "최경민");
+            mapTest.set("나이", 36);
+            for (v of mapTest) {
+              console.log(v)
+            }
+          </script>
+        </li>
+      </ul>
+    </article>
+    <li>{black:["black,"white"],default:["white","black"],darkgray:["darkgray",bisque"],pink["lavender","indigo"]}
+      <select class="" id="Col" name="themeselect" onchange="themeChange(this)">
+        <option value="black">블랙</option>
+        <option value="default">기본테마</option>
+        <option value="darkgray">메탈테마</option>
+        <option value="pink">핑크테마</option>
+      </select>
+      <script>
+        let themes = {
+          black: ["black", "white"],
+          default: ["white", "black"],
+          darkgray: ["darkgray", "bisque"],
+          pink: ["lavender", "indigo"]
+        };
+        console.log(themes["black"]);
+        console.log(themes.default);
+        //테마를 선택하면 body의 background color 바꾸기.
+        //console.log(document.body.style.backgroundColor)
+        function themeChange(event) {
+          let color = Col.event.selected.value();
+          document.getElementById("Col").style.background = color;
+        }
+        function mouseDown(){
+          document.getElementsByClass('pop_nav').style.display= 'block';
+        }
+      </script>
+    </li>
+    <nav>
+      <!-- #popNav>li에 마우스를 올리면 (mouseenter).pop_nav의 display를 block으로 바꿔 화면에 보이게 하고-->
+      <!-- 마우스를 뺴면 (mouseleave).pop_nav의 display를 none으로 바꿔 화면에서 보이지 않게 하라. -->
+      <ul id="popNav" onmouseenter="this.style.color='red'; this.pop_nav.style.display='block';"
+      onmouseleave="this.style.color='black'; this.pop_nav.style.display='block';">
+        <li>html study
+          <ul class="pop_nav" style="display:none" ;>
+            <li><a href="#">intro</a></li>
+            <li><a href="#">basic</a></li>
+            <li><a href="#">attributes</a></li>
+            <li><a href="#">style</a></li>
+          </ul>
+        </li>
+        <li>js Study
+          <ul class="pop_nav" style="display:none">
+            <li><a href="#"> intro</a> </li>
+            <li><a href="#"> variable</a> </li>
+            <li><a href="#"> data type</a> </li>
+            <li><a href="#"> number</a> </li>
+          </ul>
+        </li>
+      </ul>
+
+    </nav>
+  </main>
+
+
+
+
+
+
+</body>
+
 </html>
