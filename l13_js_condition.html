@@ -108,8 +108,8 @@
           </p>
     </article>
     <script>
-      let x=0;
-      function switchTest(){
+      //let x=0;
+      function switchTest(x){
         switch (Number(x)){
           case 0:
           console.log("입력한 값은 0입니다.");
@@ -125,7 +125,7 @@
         }
       }
 
-      switchTest(0)
+      switchTest()
 
       function IfTest(){
         if (x===0){
@@ -140,8 +140,39 @@
       }
 
     </script>
+<article>
+  <h2>삼항연산자</h2>
+  <p>작성법1 : (condition)? true일떄 실행 : false 일때 실행.==
+  if(condition){true}else{false}</p>
+  <p>작성법2 : let variable = (condition)? true_object : false_object;</p>
+  <pre> 작성법 3:
+    (condition)? true
+    :(condition2)? true
+    :(condition3)? true
+    : false ;
+  </pre>
+  <p>if(condition)else if(condition2){}else if(condition3){}else{};</p>
+  <script>
+  //window는 this(현재) 생략가능.
+    //(1<0)? window.alert("1>0") : alert("1<0");
+  </script>
+  <ul>
+    <li><script>document.write(`(1<0)?"1>0":"1<0" = ${(1<0)?"1>0":"1<0"}`);</script></li>
+    <li><script>document.write(`(false)?"참입니다" :"거짓입니다." = ${(false)?"참입니다" :"거짓입니다."}`);</script></li>
+    <li><script>document.write(`(false)?"참입니다" :"거짓입니다." = ${(false)?"참입니다" :"거짓입니다."}`);</script></li>
+  </ul>
+</article>
+
   </main>
 
 </body>
+
+
+
+
+
+
+
+
 
 </html>

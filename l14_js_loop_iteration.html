@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>js loop iteration</title>
+  </head>
+  <body>
+<main>
+  <h1>자바스크립트의 루프와 반복.</h1>
+  <p>for, for in, for of, while, dowhile 반복문(iteration statements)이 있다.</p>
+  <p>동일한 명령을 일정 횟수만큼 방복하기 위해 작성되는 문법.대체로 검사식에 많이 사용된다.</p>
+  <article>
+    <h2>for 반복문</h2>
+    <p>for(초기문; 조건문; 증감문){반복실행} : for는 조건이 true일 때 반복실행한다.</p>
+    <script>
+      let n=0;
+      for(let i=0; i<10; i++){
+        console.log(`i : ${i}`)
+      }
+      while (n<10) {
+        console.log(`n : ${n}`)
+        n++;
+      }
+
+    </script>
+<ul>
+  <li>[11,2,20,3,13,1,0,-20]의 max값 찾기</li>
+  <script>
+    let a = [11,2,20,3,13,1,0,-20];
+    let b = 10;
+    let max = -Infinity;
+    max = (max<b)?b:max;
+    console.log(max);
+  for(let i=0; i< a.length; i++){
+    if(max<a[i]){
+      max=a[i];
+    }
+  }
+  function bubbleSort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - 1; j++) {
+      if (arr[j + 1] < arr[j]) {
+        let tempStay = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tempStay;
+        console.log(i+"/"+j+" : "+tempStay)
+      }
+    }
+  }
+}
+bubbleSort(a);
+console.log(a);
+
+
+document.write(max);
+
+
+  </script>
+</ul>
+  </article>
+  <article class="">
+    <h2>for of 반복문</h2>
+  </article>
+</main>
+  </body>
+</html>
