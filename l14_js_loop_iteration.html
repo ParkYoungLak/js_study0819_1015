@@ -180,10 +180,10 @@
     <nav>
       <!-- #popNav>li에 마우스를 올리면 (mouseenter).pop_nav의 display를 block으로 바꿔 화면에 보이게 하고-->
       <!-- 마우스를 뺴면 (mouseleave).pop_nav의 display를 none으로 바꿔 화면에서 보이지 않게 하라. -->
-      <ul id="popNav" onmouseenter="this.style.color='red'; this.pop_nav.style.display='block';"
-      onmouseleave="this.style.color='black'; this.pop_nav.style.display='block';">
+      <ul id="popNav" onmouseenter="this.style.color='red';"
+      onmouseleave="this.style.color='black';">
         <li>html study
-          <ul class="pop_nav" style="display:none" ;>
+          <ul class="pop_nav" style="display:none" onmouseenter="this.style.display='block';" ;>
             <li><a href="#">intro</a></li>
             <li><a href="#">basic</a></li>
             <li><a href="#">attributes</a></li>
