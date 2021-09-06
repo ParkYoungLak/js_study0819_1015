@@ -13,9 +13,9 @@ body {
   margin: 0;
   background-color: rgba(144, 200, 190, .4)
 }
-
+/*
 button {}
-
+*/
 .header {
   display: flex;
   font-size: 40px;
