@@ -97,10 +97,25 @@ num3.forEach((v,i,self)=>{
   <h2>filter() 조건에 통과한 배열 요소만 새로운 배열로 만든다.</h2>
   <p>Array.filter(function(v,i,s){return boolean})</p>
   <ul>
-    <li>
-      <script>
+    <li> [-200,100,-189,40,-50,0,-10,20,1].filter(v=> v>-11);
+      <script> 
+        
         const num6 = [-200,100,-189,40,-50,0,-10,20,1];
-
+        const test = function(v){return v>-11};
+        console.log(`v>-11 : ${num6.filter(test)}`);
+        console.log(num6.filter((v)=> v> -10))
+        //함수에 매개변수로 익명함수를 사용하는 이유는 가독성을 높이기 위해서.
+        const num7 = [-200,"백",100,-189,40,"40",-50,-10,"십",1]
+        console.log(`문자제외 : ${num7.filter(v=> typeof v =='number')}`);
+      </script>
+    <li>[{name:"k",age:!0},{name:"a",age:20},{name:"b",age:30},{name:"c",age:40}]
+      <script>
+        const persons=[{name:"k",age:10},{name:"a",age:20},{name:"b",age:30},{name:"c",age:40}];
+        let over20_presons = persons.filter((v,i)=>{
+          //console.log(`v.age : ${v.age} / i : ${i}`);
+          return v.age > 20;
+        })
+        document.write(`over_20 : ${JSON.stringify(over20_presons)}`);
       </script>
     </li>
   </ul>
