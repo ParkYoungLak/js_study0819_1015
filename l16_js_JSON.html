@@ -1,0 +1,36 @@
+<html lang="en" dir="ltr">
+    <head>
+    <meta charset="UTF-8">
+    <title>js JSON</title>
+    </head>
+    <body>
+    <main>
+    <h1>JSON(Javascript Object Notation)</h1>
+        <ul>
+            <li>자바스크립트의 객체 표현법</li>
+            <li>JSON 은 문자열로 표현될 수 있다.</li>
+            <li>아주 가벼운 경량 데이터 교환 방식으로 문자열로만 이루어진다.(모든 프로그래밍 언어에 독립적이다.) </li>
+            <li>데이터를 주고 받기위해 사용된다.</li>
+        </ul>
+        <article>
+            <h2>JSON 작성법</h2>
+            <ul>
+                <li>JSON = {}</li>
+                <li>const jsonData = {};</li>
+                <li>const jsonData = {key:value, key2:value}; 이때 KEY의 이름은 중복될 수 없다. </li>
+                <li>const jsonData = {"key":"value", "key2":"value"}; 문자열로 이루어진 데이터 형식이기 때문에 
+                기본데이터 타입(문자열,숫자,논리)과 배열을 제외하고 모두 문자열로 작성.  </li>
+                <li>json 의 key 는 property 로 .으로 접근가능하다. : jsonData.key </li>
+                <li>프로그래밍에서 key 가 유동적으로 바뀔 때는 ["key"] 방식으로 접근가능하다. : jsonData["key"] </li>
+<script>
+  const jsonData = {"name":"박영락","age":44,"married":true,"family":["엄마","아빠","누나","형","아내"]};
+  console.log(jsonData.name);
+  console.log(jsonData["age"]);
+</script>                
+
+            </ul>
+        </article>
+        </main>
+    </body>
+
+</html>

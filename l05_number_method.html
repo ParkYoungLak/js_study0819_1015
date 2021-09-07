@@ -215,7 +215,14 @@
         <br>ex) 100==new Number(100) : <script> document.write(100 == new Number(100)); //== value 만 비교  </script> 
         <br>ex) 100===new Number(100) : <script> document.write(100 === new Number(100)); //=== value & type 비교 </script> 
         <br>ex) 100===new Number(100).valueOf : <script> document.write(100 === new Number(100).valueOf()); //=== value & type 비교 </script> 
-
+      </td>
+    </tr>
+    <tr>
+      <td>toString()</td>
+      <td>Number 객체가 가지는 숫자값을 문자열로 반환한다.(모든 객체는 toString()을 가지고 보통 객체의 설명을 출력한도록 재정의한다.)
+        <br>new Number(100).toString() : <script>document.write(new Number(100).toString()) </script>
+        <br> typeof(new Number(100).toString()) : <script>document.write(typeof (new Number(100).toString()))</script> 
+        <br> 이 객체에 대한 설명은 숫자 100이다가 가장 중요하다. 
       </td>
     </tr>
   </tbody>
