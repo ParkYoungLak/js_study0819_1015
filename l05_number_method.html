@@ -141,6 +141,83 @@
         예2)Number.parseint("alksd3.14") : <script>document.write(Number.parseInt("alksd3.14"))</script>
       </td>
     </tr>
+    <tr>
+      <td>Number()</td>
+      <td>
+        문자열의 부동 소수를 찾아서 소수점 숫자를 반환.(공백으 포함한 문자열 앞에 소수를 찾아서 부동소수로 반환)
+        <br>예1)Number("3.14abcdefskdfj") : <script>document.write(Number("3.sdf1sdfsd4abcdefskdfj"))</script>
+        <br>예1)Number("alksd3.14") : <script>document.write(Number("alksd3.14"))</script>
+        <br>예1)Number("asdasd3.14") : <script>document.write(Number("asdasd3.14"))</script>
+        <br>예1)Number("  3.14") : <script>document.write(Number("  3.14"))</script>
+        <br>예1)Number("Infinity") : <script>document.write(Number("Infinity"))</script>
+        <br>예1)Number("true") : <script>document.write(Number("true"))</script>
+        <br>예1)Number("false") : <script>document.write(Number("false"))</script>
+        <br>예1)Number(true) : <script>document.write(Number(true))</script>
+        <br>예1)Number(false) : <script>document.write(Number(false))</script>
+        <br>예1)Number("1/100") : <script>document.write(Number("1/100"))</script>
+        <br>예1)Number("1*100") : <script>document.write(Number("1*100"))</script>
+        <br>예1)Number(new Date()) : <script>document.write(Number(new Date()))</script>
+        <br>예1)Number(new Date("1970-01-01")) : <script>document.write(Number(new Date("1970-01-01")))</script>
+        <br><input id="valTest"type="number" value="2110"> 
+        <input type="button" value="*2" onclick="alert(document.getElementById('valTest').value+100)">
+        <input type="button" value="+100" onclick="alert(Number(document.getElementById('valTest').value)+100)">
+
+      </td>
+    </tr> 
+    <tr>
+      <td>Number.toFixed(0보다큰수)
+      <td>소숫점 자릿수를 지정할 수 있다.
+        <br>예) 5.34567.toFixed(0): <script>document.write(5.34567.toFixed(0)+": typeof  :  "+(typeof (5.34567.toFixed(0))))</script>
+        <br>예) 5.34567.toFixed(0): <script>document.write(5.34567.toFixed(1))</script>
+        <br>예) 5.34567.toFixed(0): <script>document.write(5.34567.toFixed(2))</script>
+        <br>예) 5.34567.toFixed(0): <script>document.write(5.34567.toFixed(3))</script>
+        <br>예) 5.34567.toFixed(0): <script>document.write(5.34567.toFixed(4))</script>
+        <br>예) 5.34567.toFixed(0): <script>document.write(5.34567.toFixed(5))</script>
+        <br>예) 5.34567.toFixed(0): <script>document.write(5.34567.toFixed(2)+10)</script>
+      </td>
+    </tr>
+    <tr>
+      <td>toPrecision(1보다 큰 값)</td>
+      <td>숫자를 지정된 길이로 변환한다. 변환된 숫자는 문자열 타입이다.
+        <br> 예) 956.345.toPrecision(-1) : error <script>// document.write(956.345.toPrecision(-1))</script>
+       <br> 예) 956.345.toPrecision(2) <script> document.write(956.345.toPrecision(2))</script>
+       <br> 예) 956.345.toPrecision(1) <script> document.write(956.345.toPrecision(1))</script>
+       <br> 예) 956.345.toPrecision(5) <script> document.write(956.345.toPrecision(5))</script>
+      </td>
+    </tr>
+    <tr>
+      <td>toExponential</td>
+      <td>100 -> 1.0e+2(지수표기법) 소숫점의 길이를 정하고 지수표기법으로 작성한다.이 때 반환되는 숫자는 문자열 타입이다.</td>
+      <td>
+        <br>예) 50.34567.toExponential(0): <script>document.write(50.34567.toExponential(0)+": typeof  :  "+(typeof (5.34567.toFixed(0))))</script>
+        <br>예) 50.34567.toExponential(1): <script>document.write(50.34567.toExponential(1))</script>
+        <br>예) 50.34567.toExponential(2): <script>document.write(50.34567.toExponential(2))</script>
+        <br>예) 50.34567.toExponential(3): <script>document.write(50.34567.toExponential(3))</script>
+        <br>예) 50.34567.toExponential(4): <script>document.write(50.34567.toExponential(4))</script>
+        <br>예) 50.34567.toExponential(5): <script>document.write(50.34567.toExponential(5))</script>
+        <br>예) 50.34567.toExponential(2)+10: <script>document.write(Number(50.34567.toExponential(2))+10)</script>
+      </td>
+    </tr>
+    <tr>
+      <td>valueOf()</td>
+      
+        <script>
+          console.log(typeof 13); // 기본 데이터 타입 number
+          console.log(typeof new Number(13)); //인스턴스 객체(typeof 는 모든 인스턴스객체를 Object 로 인식)
+          console.log(typeof new Number(13).valueOf()); // 인스턴스 객체 number에서 기본데이터 타입이 숫자인 value를 반환.
+        </script>
+      <td>
+        인스턴스 객체인 Number에서 숫자 기본데이터 타입을 반환하는 함수. 
+        <br>ex) typeof 100 : <script> document.write(typeof 100) //기본데이터 타입은 인스턴스 객체가 아니다.</script> 
+        <br>ex) typeof new Number 100 : <script> document.write(typeof new Number(100))</script> 
+        new Number()의 실제 데이터 타입은 Number 이고 Object 는 모듭 타입의 부모다. 
+        typeof는 기본데이터 타입 외에 대부분을 Object로 검사한다. 
+        <br>ex) 100==new Number(100) : <script> document.write(100 == new Number(100)); //== value 만 비교  </script> 
+        <br>ex) 100===new Number(100) : <script> document.write(100 === new Number(100)); //=== value & type 비교 </script> 
+        <br>ex) 100===new Number(100).valueOf : <script> document.write(100 === new Number(100).valueOf()); //=== value & type 비교 </script> 
+
+      </td>
+    </tr>
   </tbody>
 </table>
 
