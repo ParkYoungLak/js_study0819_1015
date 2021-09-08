@@ -22,21 +22,42 @@ console.log(tdList)
   
 
   //날짜뿌리기
-  function DateBringer(){
-  for(let i=firstDay,d=1;i<lastDay+firstDay;i++){
-    tdList[i].querySelector(".day").innerText= d++;
-  };
-  }
-  
-let toDay = new Date();
-//let date = new Date();
-let thisMonth = toDay.getMonth();
 let lastDay = new Date(2021,9,0).getDate();
   //9월의 시작하는 요일 
   let firstDay = new Date(2021,8,1).getDay();
   //let a=1,b=2 이런 식으로 선언 가능.
 
-  function prevMonth(){
+let nextMonth = firstDay + lastDay
+let lastMonth = new Date(2021,8,0).getDate();  
+let toDay = new Date();
+//let date = new Date();
+let thisMonth = toDay.getMonth();
+
+ //날짜뿌리기
+  function DateBringer(){
+  for(let i=firstDay,d=1;i<lastDay+firstDay;i++){
+    tdList[i].querySelector(".day").innerText= d++;
+        tdList[i].style.color= "rgb(130,130,130)"
+
+    //console.log(tdList[i].querySelector(".day").classList)
+    //emlment.classList("") 복수로 지정된 클래스를 배열로 받아온다.
+    //classList.add("") 클래스를 더한다.
+    //classList.remove("") 클래스를 지운다.
+    //classList.toggle("") 클래스를 있으면 삭제하고 없으면 더한다.
+  };
+  for(i=firstDay-1; i>=0;i--){
+    tdList[i].querySelector(".day").innerText =lastMonth--;
+    tdList[i].classList.add("disabled");
+  };
+  
+  for(let i=nextMonth,num=1;i<=tdList.length;i++){
+    tdList[i].querySelector(".day").innerText = num++;
+    tdList[i].classList.add("disabled");
+
+  };
+}
+
+  function prevMon(){
     console.log("!!") 
     //DateBringer()
     
@@ -47,7 +68,7 @@ let lastDay = new Date(2021,9,0).getDate();
   };
     console.log("##");
   }
-  function nextMonth(){
+  function nextMon(){
     console.log("!!")
     //DateBringer
     let lastDay = new Date(2021,thisMonth+1,0).getDate();

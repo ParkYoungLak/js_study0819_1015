@@ -36,10 +36,25 @@
       </li>
     </ul>
   </article>
+<article>
+  <h2>Element.classList : html 배열타입으로 자바스크립트 배열과는 다른 함수를 제공한다.</h2>
+  <p>요소는 복수의 클래스를 가질 수 있다.</p>
+  <p>Element.class = "a b c"(사용안함)</p>
+  <p>Element.classList = [a, b, c] (o) </p>
+  <p>스타일이 적용된 클래스를 추가 삭제하기 위해 많이 사용된다.</p>
+  <ul>
+    <li>classList.add("ClassName"): array.push() 비슷한 함수로 클래스를 추가한다.</li>
+    <li>classListr.emove("ClassName"): array.slice() 비슷한 함수로 클래스를 제거한다.</li>
+    <li>classList.toggle("ClassName"): 해당클래스가 있으면 삭제 없으면 추가.</li>
+  </ul>
+
+</article>
+
+
   <h1>(일정 등록되는 ) 달력만들기</h1>
-  <h2><button id="prevBtn" type="button" onclick="prevMonth(this)">2021년 8월</button>
+  <h2><button id="prevBtn" type="button" onclick="prevMon(this)">2021년 8월</button>
     <span id="toDate">2021년 9월</span>
-  <button id="nextBtn"type="button" onclick="nextMonth(this)">2021년 10월</button></h2> 
+  <button id="nextBtn"type="button" onclick="nextMon(this)">2021년 10월</button></h2> 
 <table id="calendarTable">
   <thead>
     <tr>
