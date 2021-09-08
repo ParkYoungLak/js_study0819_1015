@@ -38,6 +38,7 @@ let thisMonth = toDay.getMonth();
   for(let i=firstDay,d=1;i<lastDay+firstDay;i++){
     tdList[i].querySelector(".day").innerText= d++;
         tdList[i].style.color= "rgb(130,130,130)"
+        tdList[i].classList.add("add");
 
     //console.log(tdList[i].querySelector(".day").classList)
     //emlment.classList("") 복수로 지정된 클래스를 배열로 받아온다.
@@ -50,7 +51,7 @@ let thisMonth = toDay.getMonth();
     tdList[i].classList.add("disabled");
   };
   
-  for(let i=nextMonth,num=1;i<=tdList.length;i++){
+  for(let i=nextMonth,num=1;i<=tdList.length-1;i++){
     tdList[i].querySelector(".day").innerText = num++;
     tdList[i].classList.add("disabled");
 

@@ -6,10 +6,21 @@ table, th, td{
     border: 1px solid black;
     color: rgba(17, 16, 16, 01)
 }
+#calendarTable td {
+    border: 1px solid black;
+    text-align: center;
+}
 
 #calendarTable td:hover{
     background-color: rgba(0,0,0,.1);
+    box-shadow: 2px 2px 5px black;
 }
 #calendarTable .schedule{
     visibility: hidden;
+}
+
+#calendarTable td.disabled{
+    color: rgba(0,0,0,.1);
+    background-color: rgb(220, 220,230);
+    box-shadow: none;
 }
