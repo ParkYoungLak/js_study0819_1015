@@ -608,12 +608,16 @@ for(td of tdList){
     //console.log(td);
     //console.log(event.target);
     event.target.querySelector(".schedule").style.visibility="visible";
+    event.target.querySelector(".schedule").style.border = "2px solid darkorchid";
   }
+  
+}
   //element.addEventListener("event명",()=>{});
   td.addEventListener("mouseleave",function(event){
     event.target.querySelector(".schedule").style.visibility="hidden";
-  })
-}
+    event.target.querySelector(".schedule").style.border = "none";
+  })  
+
 let paraMonth = 9;
 let dateMonth = paraMonth-1;
 
