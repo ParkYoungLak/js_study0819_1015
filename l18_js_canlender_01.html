@@ -2,38 +2,44 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="l17_calendar1.css">
+    <link rel="stylesheet" href="../css/l17_calendar.css">
     <title>js calendar</title>
   </head>
   <body>
   <h1>(일정 등록되는)달력 만들기</h1>
     <h2>
-       <button type="button">2021년 8월</button>
+       <button class="changeMonth" id="preMonth" type="button" value="2021-8">2021년 8월</button>
        <span id="toDate">
-         2021년 9월</span>
-         <form name="changeDate">
-           <label for="">year:
-          <input type="number" name="" id="" value="2030">
-           </label>
-           <label for="">month:
-             <select name="changeMonth" id="">
-               <option value="1">1월</option>
-               <option value="2">2월</option>
-               <option value="3">3월</option>
-               <option value="4">4월</option>
-               <option value="5">5월</option>
-               <option value="6">6월</option>
-               <option value="7">7월</option>
-               <option value="8">8월</option>
-               <option value="9">9월</option>
-               <option value="10">10월</option>
-               <option value="11">11월</option>
-               <option value="12">12월</option>
-             </select> 
-           </label>
+         2021년
+         9월
+       </span>
+       <form name="changeDate">
+        <label>year:
+           <input type="number" name="" value="2030">
+        </label>
+        <label>month:
+          <!-- <input type="number" name="" value="10" max="12" min="1"> -->
+          <select name="changeYear">
+            <!-- option[value="$$"]{$$월}*12 -->
+            option[value="$$"]{$$월}*12
+            <option value="1">1월</option>
+            <option value="2">2월</option>
+            <option value="3">3월</option>
+            <option value="4">4월</option>
+            <option value="5" selected>5월</option>
+            <option value="6">6월</option>
+            <option value="7">7월</option>
+            <option value="8">8월</option>
+            <option value="9">9월</option>
+            <option value="10">10월</option>
+            <option value="11">11월</option>
+            <option value="12">12월</option>
+          </select>
+        </label>
 
-         </form>
-       <button type="button">2021년 10월</button>
+
+       </form>
+       <button class="changeMonth" id="nextMonth" type="button" value="2021-10">2021년 10월</button>
      </h2>
     <table id="calendarTable">
       <thead>
@@ -577,86 +583,77 @@ for(td of tdList){
     event.target.querySelector(".schedule").style.visibility="hidden";
   })
 }
+//new Date().getMonth() 현재 달의 -1을 반환한다.(0~11)
+printCalendar(new Date().getMonth()+1);
 
-//9월 마지막 일 구하기
-let lastDay=new Date(2021,9,0).getDate();
-//9월의 시작하는 요일 구하기
-let firstDay=new Date(2021,8,1).getDay();
-//let a=1,b=2;
-//활성화된 해당 월 출력
-for(let i=firstDay,d=1; i<lastDay+firstDay; i++){
-  tdList[i].querySelector(".day").innerText=d++;
-  tdList[i].classList.add("active"); //활성화된 td 스타일
-}
-//전달의 마지막날 구하기
-let lastMonth=new Date(paraYear,dateMonth,0).getDate();
-//선언된 변수가 조건문의 대입되지 않는 경우 기본값을 주어라.
+function printCalendar(paraMonth,paraYear=(new Date().getYear()+1900)){
+  let dateMonth=paraMonth-1; //Date()는 month 가 0~11까지다.
+  //9월 마지막 일 구하기
+  let lastDay=new Date(paraYear,dateMonth+1,0).getDate();
+  //9월의 시작하는 요일 구하기
+  let firstDay=new Date(paraYear,dateMonth,1).getDay();
+  //전달의 마지막날 구하기
+  let lastMonth=new Date(paraYear,dateMonth,0).getDate();
+  //////////////////////////////////////////////////////////////////////
 
-/*
-let next_button_month= (paraMonth + 1 == 13) ? 1 : paraMonth + 1;
-let next_button_year= (paraMonth + 1 == 13) ? paraYear - 1 : paraYear;
-let pre_button_month = (paraMonth-1==0)? 12:paraMonth-1;
-let pre_button_year = (paraMonth-1==0)? paraYear-1:paraYear;
 
-if(paraMonth==13){
-  next_button_month=1;
-  next_button_year=paraYear+1;
-}else{
-  next_button_month=paraMonth+1;
-  next_button_year=paraYear;
-}
-*/
-
-/*
-const changeMonth = {
-  next:{
-    month: (paraMonth + 1 == 13) ? 1 : paraMonth + 1, 
-    year: (paraMonth + 1 == 13) ? paraYear-1 : paraYear,
-    text: function(){return `${this.year}년 ${this.month}월 `} ,
-    value: function(){return this.year + "-" + this.month} 
-  }, 
-  pre:{
-    month: (paraMonth - 1 == 0) ? 12 : paraMonth - 1,
-    year: (paraMonth - 1 == 0) ? paraYear - 1 : paraYear,
-    text: function(){return `${this.year}년 ${this.month}월 `} ,
-    value: function(){return this.year + "-" + this.month} 
+  function ButtonValue(month,year){
+    this.month=month;
+    this.year=year;
+    this.text=`${this.year}년도 ${this.month}월`;
+    this.value=`${this.year}-${this.month}`;
   }
-};
-*/
+  const nextB=(paraMonth+1==13)
+                ?new ButtonValue(1,paraYear+1)
+                :new ButtonValue(paraMonth+1,paraYear);
 
-console.log(changeMonth);
-//함수로 JSON 객체 선언하는법
-function ButtonValue(month,year){
-  this.month=month; //this.key : 객체에 key 를 만듬.
-  this.year=year;
-  this.text=this.year+"년 "+this.month+"월 ";
-  this.value=this.year+"-"+this.month;
+  const preB=(paraMonth-1==0)
+                ?new ButtonValue(12,paraYear-1)
+                :new ButtonValue(paraMonth-1,paraYear);
+
+  document.getElementById("nextMonth").innerText=nextB.text;
+  document.getElementById("nextMonth").value=nextB.value;
+
+  document.getElementById("preMonth").innerText=preB.text;
+  document.getElementById("preMonth").value=preB.value;
+
+  document.getElementById("toDate").innerText=`${paraYear}. ${paraMonth}`;
+  //document.getElementById("toDate").innerText=new Date(paraYear,dateMonth);
+
+
+
+  //활성화된 해당 월 출력
+  for(let i=firstDay,d=1; i<lastDay+firstDay; i++){
+    tdList[i].querySelector(".day").innerText=d++;
+    tdList[i].classList.add("active"); //활성화된 td 스타일 추가
+    tdList[i].classList.remove("disabled"); //비활성화된 td 스타일 삭제
+
+  }
+
+  //비활성화된 전달의 출력
+  for(let i=firstDay-1; i>=0; i--){
+    tdList[i].querySelector(".day").innerText=lastMonth--;
+    tdList[i].classList.add("disabled");//비활성화된 td 스타일 추가
+    tdList[i].classList.remove("active");//활성화된 td 스타일 삭제
+
+  }
+  //비활성화된 다음달 출력
+  let nextMonth=firstDay+lastDay
+  for(let i=nextMonth,num=1; i<=tdList.length-1; i++){
+    tdList[i].querySelector(".day").innerText=num++;
+    tdList[i].classList.add("disabled");//비활성화된 td 스타일 추가
+    tdList[i].classList.remove("active");//활성화된 td 스타일 삭제
+
+  }
 }
-//new changeButton(month,year);
-const nextBtn = (paraMonth+1==13)? new ButtonValue(1,paraYear+1) : new ButtonValue(paraMonth+1,paraYear);
-const preBtn = (paraMonth - 1 == 0) ? new ButtonValue(12, paraYear - 1) : new ButtonValue(paraMonth - 1, paraYear);
+//button인 달 바꾸기만 onclick이벤트 재정의
+document.querySelectorAll(".changeMonth[type=button]").forEach((item) => {
+//  item.onclick=function(){}
+    item.addEventListener("click",(event)=>{
+      let yearMonthArr=event.target.value.split("-");//"2021-8"->[2021,8]
+      printCalendar(Number(yearMonthArr[1]),Number(yearMonthArr[0]));
+    });
+});
 
-
-  document.getElementById("toDate").innerText = `${paraYear}, ${paraMonth}`;
-  document.getElementById("nextMonth").innerText = nextBtn.text();
-  document.getElementById("nextMonth").value = nextBtn.value();
-  document.getElementById("preMonth").innerText = preBtn.text();
-  document.getElementById("preMonth").value = preBtn.value();
-
-//비활성화된 전달의 출력
-for(let i=firstDay-1; i>=0; i--){ 
-  tdList[i].querySelector(".day").innerText=lastMonth--;
-  tdList[i].classList.add("disabled");//비활성화된 td 스타일
-}
-//비활성화된 다음달 출력
-let nextMonth=firstDay+lastDay
-for(let i=nextMonth,num=1; i<=tdList.length-1; i++){
-  tdList[i].querySelector(".day").innerText=num++;
-  tdList[i].classList.add("disabled");//비활성화된 td 스타일
-}
-
-function printCalendar(paraYear, paraMonth){
-
-} 
 </script>
 </html>
