@@ -566,7 +566,62 @@ for(let i=firstDay,d=1; i<lastDay+firstDay; i++){
   tdList[i].classList.add("active"); //활성화된 td 스타일
 }
 //전달의 마지막날 구하기
-let lastMonth=new Date(2021,8,0).getDate();
+let lastMonth=new Date(paraYear,dateMonth,0).getDate();
+//선언된 변수가 조건문의 대입되지 않는 경우 기본값을 주어라.
+
+/*
+let next_button_month= (paraMonth + 1 == 13) ? 1 : paraMonth + 1;
+let next_button_year= (paraMonth + 1 == 13) ? paraYear - 1 : paraYear;
+let pre_button_month = (paraMonth-1==0)? 12:paraMonth-1;
+let pre_button_year = (paraMonth-1==0)? paraYear-1:paraYear;
+
+if(paraMonth==13){
+  next_button_month=1;
+  next_button_year=paraYear+1;
+}else{
+  next_button_month=paraMonth+1;
+  next_button_year=paraYear;
+}
+*/
+
+/*
+const changeMonth = {
+  next:{
+    month: (paraMonth + 1 == 13) ? 1 : paraMonth + 1, 
+    year: (paraMonth + 1 == 13) ? paraYear-1 : paraYear,
+    text: function(){return `${this.year}년 ${this.month}월 `} ,
+    value: function(){return this.year + "-" + this.month} 
+  }, 
+  pre:{
+    month: (paraMonth - 1 == 0) ? 12 : paraMonth - 1,
+    year: (paraMonth - 1 == 0) ? paraYear - 1 : paraYear,
+    text: function(){return `${this.year}년 ${this.month}월 `} ,
+    value: function(){return this.year + "-" + this.month} 
+  }
+};
+*/
+
+console.log(changeMonth);
+//함수로 JSON 객체 선언하는법
+function changeButton(para_month,para_year){
+  this.month=para_month; //this.key : 객체에 key 를 만듬.
+  this.year=para_year;
+  this.text=this.year+"년 "+this.month+"월 ";
+  this.value=this.year+"-"+this.month;
+}
+//new changeButton(month,year);
+const nextBtn = (paraMonth+1==13)? new changeButton(1,paraYear+1) : new changeButton(paraMonth+1,paraYear);
+const preBtn = (paraMonth - 1 == 0) ? new changeButton(12, paraYear - 1) : new changeButton(paraMonth - 1, paraYear);
+const changeMonth={
+  next:nextBtn,
+  pre:preBtn
+}
+
+  document.getElementById("toDate").innerText = `${paraYear}, ${paraMonth}`;
+  document.getElementById("nextMonth").innerText = changeMonth.next.text();
+  document.getElementById("nextMonth").value = changeMonth.next.value();
+  document.getElementById("preMonth").innerText = changeMonth.pre.text();
+  document.getElementById("preMonth").value = changeMonth.pre.value();
 
 //비활성화된 전달의 출력
 for(let i=firstDay-1; i>=0; i--){
@@ -580,5 +635,8 @@ for(let i=nextMonth,num=1; i<=tdList.length-1; i++){
   tdList[i].classList.add("disabled");//비활성화된 td 스타일
 }
 
+function printCalendar(paraYear, paraMonth){
+
+} 
 </script>
 </html>
