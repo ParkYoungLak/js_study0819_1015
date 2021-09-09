@@ -74,10 +74,16 @@
           <li>1</li>
           <li>2</li>
 <script>
+  /*
   let li_1 = document.createElement('li');
   console.log(li_1)
-  li_1.append('0.5')
+  li_1.append('0.5')  
   document.getElementById('aaa').append(li_1)
+  */ 
+
+ let li_node3 = document.createElement("li");
+
+ document.querySelector("#test li:nth-child(2)").before(li_node3);
 </script>
         </article>
     </main>
