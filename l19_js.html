@@ -1,0 +1,68 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title> 
+    </head>
+    <body>
+        <h1>자바스크립트로 html 문서 조작</h1>
+        <ul id="testUl">
+<li>1번 목록</li>
+        </ul>
+        <hr>
+        <ul>
+            <li>목록에 새로운 리스트 추가: <button type="button" onclick="insertList()"></button></li>
+       
+    <script>
+        function insertList(){
+          console.log("^^")
+          document.getElementById("testU1").innerHTML += "<li> 2번 목록 </li>"
+            
+        }
+    </script>
+        <li>1번목록 앞에 0번 추가.<button type="button" onclick="insertList2()">innerHtml </button></li>
+<script>
+  function insertList2(){
+    document.getElementById("testU1").innerHTML="<li>0번목록</li>"+ document.getElementById("testU1").innerHTML
+  }
+</script>
+
+</ul>
+<hr>
+<ul id="testUl2">
+  <li>0 목록</li>
+  <!-- 0.5목록 추가 -->
+
+  <li>1 목록</li>
+  <li>2 목록</li>
+
+  <li>0~1사이에 추가 <button type="button" onclick="plus1()"></button></li>
+  <script>
+    function plus1(){
+      
+      let plusContent = document.createElement("li");
+      plusContent.innerHTML = "<li> 0.5 </li>"
+      document.getElementById('testUl2').appendChild(plusContent);
+      
+      /*
+      let string_Lis = document.getElementById("testUl2").innerHTML;
+      let array_li = string_Lis.trim().split("\n");
+      array_li.splice(1,0,"<li>0.5 목록</li>")
+      document.getElementById("testUl2").innerHTML= array_li.join("\n")
+      */
+    }
+
+  </script>
+  <li>1번 목록 삭제 <button type="button" onclick="removeList()"></button></li>
+  <script>
+    function removeList(){
+      let liList01 = document.getElementsByTagName("li");
+      console.log(liList01)
+      liList01[4].remove()
+    }
+   
+  </script>
+</ul>
+</body>
+</html>
+
+

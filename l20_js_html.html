@@ -1,0 +1,85 @@
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>js Html </title>
+</head>
+<body>
+    <main>
+        <h1>자바스크립트로 html 문서 조작하기</h1>
+        <p>document.innerHTML 은 문자열로 내부에 태그를 추가하거나 삭제하기 힘들다.</p>
+        <article>
+            <h2>document.element.append() 
+              <p>element 자식노드 중 가장 앞에 문자열이나 html 노드를 추가할 수 있다.</p>
+              <p>document.createElement() 는 html 노드(요소) 객체를 생성한다.</p>
+<script>
+  //노드 요소 객체를 의미한다.
+  //브라우저가 html 문서를 해석해서html 을 객체로 만들어서 배피.
+
+  let li_node = document.createElement('li');
+  li_node.append("추가된 내용");
+    li_node.append('aa');
+    li_node.append("뒷내용");
+    li_node.prepend("앞내용")
+
+  let li_node2 = document.createElement('li');
+    li_node2.append("추가된 내용");
+    li_node2.append('aa');
+    li_node2.append("뒷내용");
+    li_node2.prepend("앞내용")
+</script> 
+              <button type="button" 
+              onclick="document.getElementById('appendTest').append(li_node)">append()</button></h2>
+            <ul id="appendTest">
+              <li>0</li>
+              <li>1</li>
+              <li>2</li>
+            </ul>
+        </article>
+        <article>
+          <h2>document.element.prepend() <button type="button"
+              onclick="document.getElementById('prependTest').prepend(li_node2)">prepend()</button></h2>
+          <ul id="prependTest">
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+          </ul>
+        </article>
+<script>
+  let h3_node = document.createElement('h3');
+  h3_node.innerText="애프터 추가내용"
+  console.log(h3_node)
+</script>        
+        <article>
+          <h2>document.element.after() <button type="button"
+              onclick="document.getElementById('afterTest').after(h3_node)">after()</button></h2>
+          <p>선택자로 찾은 노드(요소)의 바로 뒤 형제에 추가(문자열or node)</p>
+          <ul id="afterTest">
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+          </ul>
+        </article>
+        <article>
+          <h2>document.element.before() <button type="button"
+              onclick="document.getElementById('beforeTest').before(h3_node)">before()</button></h2>
+          <ul id="beforeTest">
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+          </ul>
+        </article>
+        <article>
+          <h2>0과 1사이에 li 추가</h2>
+          <li id="aaa">0</li>
+          <li>1</li>
+          <li>2</li>
+<script>
+  let li_1 = document.createElement('li');
+  console.log(li_1)
+  li_1.append('0.5')
+  document.getElementById('aaa').append(li_1)
+</script>
+        </article>
+    </main>
+</body>
+</html>

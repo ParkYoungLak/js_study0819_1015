@@ -1,7 +1,11 @@
+.expressBigger{
+  background-color: chartreuse;
+}
+
 #calendarTable{
   border: 1px solid black;
   border-collapse: collapse;
-  width: 100%
+  width: 60%
 }
 #calendarTable td,#calendarTable th{
   border: 1px solid black;
@@ -15,8 +19,8 @@
 }
 
 #calendarTable td:hover{
-  background-color: rgba(0,0,0,.5);
-  box-shadow: 2px 2px 5px black;
+  background-color: rgba(66, 56, 56, 0.5);
+  box-shadow: 2px 2px 5px rgb(172, 203, 218);
 }
 #calendarTable .schedule{
   /* display: none; */

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/l17_calendar.css">
+    <link rel="stylesheet" href="l17_calendar1.css">
     <title>js calendar</title>
   </head>
   <body>
@@ -19,14 +19,14 @@
         </label>
         <label>month:
           <!-- <input type="number" name="" value="10" max="12" min="1"> -->
-          <select name="changeYear">
+          <select name="changeMonth">
             <!-- option[value="$$"]{$$월}*12 -->
             option[value="$$"]{$$월}*12
             <option value="1">1월</option>
             <option value="2">2월</option>
             <option value="3">3월</option>
             <option value="4">4월</option>
-            <option value="5" selected>5월</option>
+            <option value="5">5월</option>
             <option value="6">6월</option>
             <option value="7">7월</option>
             <option value="8">8월</option>
@@ -41,6 +41,15 @@
        </form>
        <button class="changeMonth" id="nextMonth" type="button" value="2021-10">2021년 10월</button>
      </h2>
+
+     <div id="expressBigger" class="">
+<div id="BiggerDay">
+
+</div>
+<div id="BiggerDate">
+  
+</div>
+     </div>
     <table id="calendarTable">
       <thead>
         <tr>
