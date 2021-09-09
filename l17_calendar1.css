@@ -5,7 +5,7 @@
 #calendarTable{
   border: 1px solid black;
   border-collapse: collapse;
-  width: 60%
+  width: 100%
 }
 #calendarTable td,#calendarTable th{
   border: 1px solid black;
