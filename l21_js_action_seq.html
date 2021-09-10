@@ -2,9 +2,19 @@
 <head>
     <meta charset="utf-8">
     <title>js action seq </title>
+    <script defer src="script\l21_action_seq.js"></script>
+    <!-- defer -> html node 를 화면에 모두 출력하고 참조된 문서를 다운: 거의 스크립트 참조시 사용. -->
+    <!-- async 속성을 주면 html 노드를 그리면서 참조문서를 비동기 방식으로 다운하고 실행한다.//선언된 스크립트 참조시 사용. -->
 </head>
 <body>
 <script>
+  window.onload=function(){
+    document.getElementById("headTitle").style.textDecoration=" wavy underline";  
+  }
+  document.getElementById("headTitle").onload=function(){
+    console.log(this);
+  } //headtitle 노드가 생성되지않아 재정의 불가.
+
    document.getElementById("headTitle").style.backgroundColor="red";
    function colorChange(color){
      document.getElementById("headTitle").style.color = color;
@@ -16,6 +26,25 @@
   <li>li에 마우스를 올리면 색이 바뀐다.</li>
   <li> ul > li 노드에 mouseenter를 재정의 한다.</li>
 </ul>
+<article>
+<h2> 문서에 선언된 스크립트의 동작 순서
+  <ol>
+    <li>브라우저는  html 문서를 css와 병합해 DOMtree구조는 생성한다.</li>
+    <li>브라우저가 병합된 구조를 보고 화면에 그래픽으로 개체를 표현한다.</li>
+    <li>순차적으로 개체를 출력하던 중 자바스크립트 구문을 발견하면 자바스크립트 를 실행하다.</li>
+    <li>이때 자바스크립트가 노드 개체를 검색하던 중이면 브라우저가 해당 노드 개체를 출력해야 찾을 수 있다.</li>
+  </ol>
+</h2>
+</article>
+<article>
+  <h2 id="secondTitle">순차적으로 언어인 html과 스크립트가 문제를 일으키지 않게 하는 방법.</h2>
+  <ul>
+    <li>자바스크립트를 모든 노드가 생성된 시점이 body 아래에 작성한다.(링크를 한다.)</li>
+    <li>onload : 해당하는 노드가 생성되었는지 확인/ window.onload=function(){스크립트 작성}</li>
+    <li>window 객체가 완전히 생성된 시점 즉 노드가 모두 로드된 시점에 자바스크립트를 작성하면 된다.</li>
+    <li>script src="참조" 이때 defer를 지정하면 html 문서를 다 다운받고 로드한 시점에 참조된 문서를 다운.</li>
+  </ul>
+</article>
 <script>
    document.getElementById("headTitle").style.backgroundColor = "gray";
    colorChange("blue");
