@@ -18,11 +18,12 @@
   background-color: rgb(50,50,50);
 }
 
+
 #calendarTable td:hover{
   background-color: rgba(66, 56, 56, 0.5);
   box-shadow: 2px 2px 5px rgb(172, 203, 218);
 }
-#calendarTable .schedule{
+#calendarTable .schedule{ 
   /* display: none; */
   /* none은 사라지게 한다.=> event를 받을 수 없다. */
   visibility: hidden;
