@@ -1,0 +1,35 @@
+body{
+    background-color: lightblue;
+    width: 80%;
+    height: 550px;
+    align-items: center;
+}
+.header{
+    display: flex;
+    background-color: rgb(189, 210, 216);
+    border: 1px solid azure;
+    border-radius: 10px;
+    
+    text-align: center;
+
+}
+.mcontainer{
+    background-color: cornsilk;
+}
+.dp_header{
+    border-radius: 3px;
+    border: 1px solid darkgrey;
+    text-align: center;
+}
+.dp{
+    border: 1px solid darkcyan;
+    border-radius: 5px;
+    background-color: rgb(226, 233, 211);
+    width: 100%;
+    height: 500px;
+    text-align: center;
+}
+
+ul{
+   list-style:none;
+   }
