@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>js html</title>
+  </head>
+  <body>
+    <main>
+      <h1>자바스크립트로 html 문서 조작하기</h1>
+      <p>document.innerHTML은 문자열로 내부에 태그를 추가하거나 삭제하기 힘들다. </p>
+      <article>
+        <h2>document.element.append()
+<script>
+  //브라우저가 html 문서를 해석해서 html 요소를 객체로 만들어 배치
+  //이 때 배치된 배치표를 DOMTree라 하고 트리안의 요소를 노드라 한다.
+  //노드(요소) 객체를 의미한다.
+  let li_string="<li></li>";
+  let li_node=document.createElement('li'); //li_node가 참조하는 노드객체 1개이다.
+  li_node.append("aa");//node 객체 안에 append: 내용을 추가
+  li_node.append( "뒷내용"); //<li> aaa "뒷내용"</li>
+  li_node.prepend("앞내용");////<li> "앞내용" aaa </li>
+</script>
+          <button type="button" onclick="
+              document.getElementById('appendTest').append(li_node);
+          ">append()</button></h2>
+        <p>element 자식의 가장 뒤에 문자열이나 html 노드를 추가할 수 있다.</p>
+        <p>document.createElement() 는 html 노드(요소)를 객체를 생성한다.</p>
+        <p>node_object.append("") : 노드 요소 안의 내용이 추가된다.</p>
+        <ul id="appendTest">
+          <li>0</li>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+      </article>
+      <article>
+        <h2>document.element.prepend()
+          <button type="button" onclick="
+              document.getElementById('prependTest').prepend(li_node);
+          ">prepend()</button>
+        </h2>
+        <p>append()와 동일하게 동작하지만 자식 노드들 중 맨 앞에 추가한다.</p>
+        <ul id="prependTest">
+          <li>0</li>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+      </article>
+<script>
+  let h3_node=document.createElement("h3");
+  h3_node.innerText="에프터 추가내용";
+  console.log(h3_node);
+</script>
+      <article>
+        <h2>document.element.after()
+          <button type="button" onclick="
+              document.getElementById('afterTest').after(h3_node);
+          ">after()</button>
+        </h2>
+        <p>선택자로 찾은 노드(요소)의 바로 뒤 형제에 추가(문자열 or node) </p>
+        <ul id="afterTest">
+          <li>0</li>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+        <h3>원래 내용</h3>
+      </article>
+      <article>
+        <h2>document.element.before()
+          <button type="button" onclick="
+              document.getElementById('beforeTest').before(h3_node);
+          ">before()</button>
+        </h2>
+        <p>선택자로 찾은 노드(요소)의 바로 앞 형제에 추가(문자열 or node) </p>
+
+        <h3>원래 내용</h3>
+        <ul id="beforeTest">
+          <li>0</li>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+      </article>
+      <article class="">
+        <h2>원하는 위치에 내용을 추가하세요(1.내용/내용:마지막)
+          <input type="text" onchange="answer0(event)" placeholder="0~.내용">
+        </h2>
+        <ul id="test">
+          <li>0</li>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+      </article>
+      <script>
+      function answer0(e){
+        let inputValue=e.target.value; //this.value
+        let inputValueArr=inputValue.split(".");
+        let li_node=document.createElement("li"); //li 태그인 노드 개체 생성
+        let testLiArr=document.querySelectorAll("ul#test>li");
+
+        li_node.style.color="red";
+
+        if(inputValueArr.length==2){
+          li_node.innerHTML="<b>"+inputValueArr[1]+"</b>"
+          if(inputValueArr[0]==0){
+            //document.querySelector("ul#test").prepend(li_node);
+            document.querySelectorAll("ul#test>li")[0].before(li_node);
+
+          }else if(inputValueArr[0]<=testLiArr.length){
+            document.querySelectorAll("ul#test>li")[inputValueArr[0]-1].after(li_node);
+          }else{
+          //  document.querySelector("ul#test").append(li_node);
+          document.querySelectorAll("ul#test>li")[inputValueArr.length].after(li_node);
+
+          }
+
+        }else if(inputValueArr.length==1){
+          li_node.innerHTML="<b>"+inputValueArr[0]+"</b>"
+          document.querySelector("ul#test").append(li_node);
+
+        }else{
+          alert("형식을 맞추세요*(0~.내용)");
+          e.target.value="";
+
+        }
+
+
+        ///li 길이보다 긴 값이 왔을 때 마지막에 보내기 0~2  4.내용 => 4=>3
+        ///길이 지정이 없이 왔을 때 마지막에 보내기  0~2  내용 => 3.내용
+
+      }
+      </script>
+    </main>
+  </body>
+
+
+
+
+
+
+
+
+
+
+</html>
