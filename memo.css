@@ -15,6 +15,7 @@ body{
 }
 .mcontainer{
     background-color: cornsilk;
+    text-align: center;
 }
 .dp_header{
     border-radius: 3px;
