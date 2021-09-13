@@ -1,0 +1,38 @@
+#memo .container{
+    width: 350px;
+    height: 300px;
+    border: 1px solid black;
+    background-color: rgb(125, 224, 121);
+    box-shadow: 2px 2px 15px black;
+    align-items: center;
+    margin: auto
+}
+#memo ul.schedule li{
+    text-align: center;
+    list-style:none;
+    padding-top: 5px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+}   
+.container{
+    text-align: center;
+}
+#memo form.insert_schedule{
+    border-top: 20px;
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+}
+button.delete{
+    
+    color:indigo;
+    background-color: rgb(189, 228, 97);
+    float: right;
+    
+}
+button.delete:hover{
+    color: red;
+    
+    background-color: seashell;
+    box-shadow: 1px 1px black;
+}
+
