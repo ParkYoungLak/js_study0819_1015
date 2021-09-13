@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>할 일 목록 메모장</title>
-    <link rel="stylesheet" href="../css/memo.css">
+    <link rel="stylesheet" href="/memo_01.css">
     <script defer src="/memo_01.js" charset="utf-8"></script>
   </head>
   <body>
@@ -28,11 +28,12 @@ const d_2021_09_10=[세수하기,도시락싸기,운전하기];
           <span class="text"></span>
           <button class="delete" type="button">X</button>
         </li> -->
+        
         <div class="container">
           <h3 class="title">9월 10일 할 일</h3>
           <ul class="schedule">
             <li>세수하기 <button class="delete" type="button">X</button></li>
-            <li>도시락싸기 <button class="delete" type="button">X</button></li>
+            <li>도시락싸기 <button value='{"index":1}' class="delete" type="button">X</button></li>
             <li>운전하기 <button class="delete" type="button">X</button></li>
             <li>출근 도장 찍기 <button class="delete" type="button">X</button></li>
             <li>청소 <button class="delete" type="button">X</button></li>
@@ -45,7 +46,7 @@ const d_2021_09_10=[세수하기,도시락싸기,운전하기];
           <label>
             <input type="text" name="text" value="">
           </label>
-          <button type="button" name="button">스케줄추가</button>
+          <button type="button" name="registBtn">스케줄추가</button>
         </form>
       </article>
     </main>
