@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>js action seq</title>
+    <!-- <script  src="../script/l21_action_seq.js" charset="utf-8"></script> -->
+    <!-- html node를 화면에 출력하다가 script 참조가 다운로드 될때까지 기다린다. -->
+    <!-- <script async src="../script/l21_action_seq.js" charset="utf-8"></script> -->
+    <!-- async : html 노드를 그리면서 참조문서를 다운되면 병렬적으로 실행한다.//변수나 함수가선언된 스크립트문 참조시 사용 -->
+    <!-- defer : html 노드 모두 분석되면(출력될 준비가 완면 DOMContentLoaded) 참조된 문서를 실행 : 거의 모든 스크립트 참조시 사용  -->
+    <script defer src="./script/l21_action_seq.js"></script>
+  </head>
+  <body>
+    <script>
+    //onload 재정의 가능 태그 <body>, <frame>, <iframe>, <img>, <input type="image">, <link>, <script>, <style>
+     window.onload=function(){
+       document.getElementById("headTitle").style.textDecoration="wavy underline green";
+     }
+
+
+      document.getElementById("headTitle").style.color="red";
+      //headTitle 노드가 생성되지 않은 시점이기 때문
+
+      function colorChange(color){
+        document.getElementById("headTitle").style.color=color;
+      }
+    </script>
+
+    <h1 id="headTitle">자바스크립트 동작 순서</h1>
+    <ul id="eventTest">
+      <li>li에 마우스를 올리면 색이 바뀐다.</li>
+      <li>ul > li 노드에 mouseenter를 재정의 한다.</li>
+    </ul>
+    <article>
+      <h2>HTML 문서에 선언된 스크립트의 동작 순서</h2>
+      <ol>
+        <li>
+          브라우저는 html 문서를 css와 병합해 DOMTree구조를 생성한다.
+        </li>
+        <li>
+          브라우저가 병합된 구조를 보고 화면에 그래픽으로 순서대로 개체를 표현한다.(순차적언어)
+        </li>
+        <li>
+          순서대로 개체를 출력하던 중 자바스크립트 구문을 발견하면 순서대로 자바스크립트를 실행한다.
+        </li>
+        <li>
+          이때 자바스크립트가 노드 개체를 검색하던 중이면 브라우저가 해당 노드 개체를 출력해야 찾을 수 있다.
+        </li>
+      </ol>
+    </article>
+    <article>
+      <h2 id="secondTitle">순자척 언어인 html과 자바스크립트가 문제를 일으키지 않게 하는 방법</h2>
+      <ul>
+        <li>자바스크립트를 모든 노드가 생성된 시점이 body 아래에 작성한다.(링크를 한다.)</li>
+        <li>onload : 해당하는 노드가 생성되었는지 확인 / window.onload=function(){ 스크립트 작성 }</li>
+        <li>window 객체가 완전히 생성된 시점 즉 노드가 모두 로드된 시점에 자바스크립트를 작성하면 된다.</li>
+        <li>script src="참조" 이때 defer를 지정하면 html 문서를 다 다운받고 로드한 시점에 참조된 문서를 다운</li>
+      </ul>
+    </article>
+    <script>
+      document.getElementById("headTitle").style.backgroundColor="gray";
+      colorChange("blue");
+      //함수를 실행하는 시점에서는 노드 개체가 생성되었기 때문
+
+      document.querySelectorAll("ul#eventTest> li").forEach((item) => {
+          item.addEventListener("mouseenter",(event)=>{
+            event.target.style.color="green";
+        })
+      });
+      //이벤트를 재정의 : 각 노드에 있는 이벤트 속성(함수)을 새롭게 작성하는 것.
+
+
+      let li_node=document.createElement("li");
+      li_node.innerText="추가된 리스트";
+      li_node.onmouseenter=function(){ this.style.color="pink"; }
+      document.querySelector("ul#eventTest").append(li_node);
+      //li_node 추가하기 전에 다른 li 에 이벤트를 재정의해서
+      // li_node는 이벤트가 재정의되지 않았다.
+    </script>
+  </body>
+  <!-- script를 body 밑에 작성하면 모든 노드 개체가 생성되기 때문에 노드를 찾지 못하는 오류를 막을 수 있다.-->
+</html>
