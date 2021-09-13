@@ -5,12 +5,12 @@ body{
     align-items: center;
 }
 .header{
-    display: flex;
+    
     background-color: rgb(189, 210, 216);
     border: 1px solid azure;
     border-radius: 10px;
-    
     text-align: center;
+    color: rgba(100, 100, 100, .5)
 
 }
 .mcontainer{
