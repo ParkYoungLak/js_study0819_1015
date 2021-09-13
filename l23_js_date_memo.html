@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>할 일 목록 시간 메모장</title>
+    <link rel="stylesheet" href="../css/memo.css">
+    <script defer src="../script/date_memo.js" charset="utf-8"></script>
+  </head>
+  <body>
+<!--
+
+10:10=>1010
+10:10=>60*10+10=>610/60:610%60=>
+23:30=>2330
+const d_2021_09=
+{
+  10:{610:세수하기,730:도시락싸기,800:운전하기},
+  11:{610:세수하기,730:도시락싸기,800:운전하기}
+}
+const d_2021_09_10=[세수하기,도시락싸기,운전하기];
+ -->
+    <main>
+      <h1>할 일 목록 메모장</h1>
+      <article id="memo">
+        <div class="container">
+          <h3 class="title">9월 10일 할 일</h3>
+          <ul class="schedule">
+            <li>9:00 운전하기.</li>
+            <li>10:00 세수하기
+              <button value="0" class="delete" type="button">X</button>
+              </li>
+            <li>11:00 도시락싸기
+              <button  value='' class="delete" type="button">X</button>
+            </li>
+            <li>11:10운전하기
+              <button value=''class="delete" type="button">X</button></li>
+          </ul>
+        </div>
+        <form class="insert_schedule" name="insertSchedule">
+          <label>
+            <input type="time" name="index" value="09:00">
+          </label>
+          <label>
+            <input type="text" name="text" value="일어나기">
+          </label>
+          <button type="button" name="regist" >스케줄추가</button>
+        </form>
+      </article>
+    </main>
+  </body>
+</html>

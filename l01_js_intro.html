@@ -1,77 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>js intro</title>
-</head>
-
-<body onload="alert('안녕 자바스트립트야')">
-  <main>
-    <h1>Javascript js 소개</h1>
-    <p>자바스트립트는 웹 브라우저 상에서 ui 를 동적으로 보여주기 위하여 개발 되었으나 배우기 쉽고 개발 속도가 빨라서
-      서버나(node.js) 모바일앱(react-native, NativeScript)등 프로그래밍의 여러분야에서 사용되고 있다.
-      또한 매해 새 버전을 출시해 오류를 수정하거나 객체지향적 특성을 발전시키고 있다.</p>
-    <article>
-      <h2> 브라우저 언어인 자바스크립트의 특징</h2>
-      <ul>
-        <li>자바스크립트는 객체 기반의 스크립트 언어로 브라우저에서 사용된다.(*응용프로그램을 동작시키는 언어의 통칭)</li>
-        <li>자바스크립트는 인터프린터 언어로 컴파일 되지 않고 바로 해석된다.(compile:작성한 코드를 기계어로 해서하는 행위)
-          그렇기 때문에 동적으로 개발할 수 있지만 실행 속도가 느리고 오류가 있는 페이지를 배포할 수 있다. </li>
-        <li>자바스크립트는 함수형 프로그래밍 언어였으나 ES6 이후로 클래스와 변수를 추가해 객체지향언어의 특징을 가진다.</li>
-        <li>자바스크립트는 주로 다루는 객체가 window.document 로 DOMTree로 구성된 document의 특정
-          element를 찾는 것에서부터 시작된다. 예)document.getElementById()</li>
-        <li>자바스트립트는 html문서가 모두 브라우저에 출력되고 마지막에 실행된다.</li>
-      </ul>
-    </article>
-    <article class="">
-      <h2>자바스크립트가 브라우저에서 할 수 있는 일</h2>
-      <ul>
-        <li>html문서의 내용을 추가 수정 삭제가 가능하다.
-          <script>
-            document.write("&nbsp; <a href='#'>추가된 내용"</a>)
-          </script>
-        </li>
-        <li>html 문서의 스타일을 변경할 수 있다.
-          <button type="button" onclick="this.style.background='red';">스타일변경</button>
-        </li>
-        <li onmouseover="this.style.color='blue';">
-          html요소에서 발생하는 외부기기의 입력을 이벤트로 받아 ui를 동적으로 바꾼다.</li>
-<li>브라우저의 BOM정보를 알 수 있거나 이벽 및 수정을 할 수 있다.
-<script>
-  document.write("현재주소:"+window.location.href)
-</script>
-</li>
-      </ul>
-    </article>
-    <script>
-      //tag내부에서 작성해야 한다.(한줄주석)
-      /* 여러줄 */
-      let a = "안녕하세요"; //문장의 마지막은 ; 로 끝낸다.
-      let b = "야호";
-      let c = "바보";
-
-    </script>
-    <article>
-      <h2>html에서 자바스크립트 작성법</h2>
-      <ul>
-        <li>코드는 script tag 내부에서 작성해야 한다.</li>
-        <li>script type="text/Javascript" 올드 자바스크립트로 사용되지 않는다.</li>
-        <li>script src=""확장자가 js 인 파일을 외부에서 참조할 수 있다.</li>
-        <li>코드를 실행 및 선언 후 ;을 작성해야 한다.</li>
-        <li>//한줄 주석</li>
-        <li>/**/ 여러줄 주석</li>
-        <li>"use strict": 엄격모드(ES6 문법 사용시 자동으로 설정, class, let ...)
-        js파일 상단에 꼭 작성해야한다.이유는 과거 문법은 오류를 많이 만들기 떄문이다.
-      예) var num=10; num=20 (o,x)</li>
-        <li></li>
-      </ul>
-    </article>
-  </main>
-</body>
-
-
-
+  <head>
+    <meta charset="utf-8">
+    <title>js intro</title>
+  </head>
+  <body onload="alert('안녕 자바스크립트야')">
+    <main>
+      <h1>JavaScript js 소개</h1>
+      <p>자바스크립트는 웹 브라우저 상에서 ui를 동적으로 보여주기 위하여
+        개발 되었으나 배우기 쉽고 개발 속도가 빨라서 서버나(Node.js) 모바일앱
+        (react-native, NativeScript)등 프로그래밍의 여러 분야에서 사용되고 있다.
+        또한 매해 새 버전을 출시해 오류를 수정하거나 객체지향적 특성을 발전시키고 있다.
+      </p>
+      <article>
+        <h2>브라우저 언어인 자바스크립트의 특징</h2>
+        <ul>
+          <li>자바스크립트는 객체 기반의 스크립트 언어로 브라우저에서 사용된다.
+              (*스크립트 언어: 응용프로그램을 동작시키는 언어의 통칭)</li>
+          <li>자바스크립트는 인터프린터 언어로 컴파일 되지 않고 바로 해석된다.
+            (컴파일: 작성한 코드를 기계어로 해석하는 행위,오류가 있는 코드는 컴파일 되지않는다.)
+            때문에 동적으로 개발할 수 있지만 실행 속도가 느리고 오류가 있는 페이지를 배포할 수 있다.
+          </li>
+          <li>자바스크립트는 함수형 프로그래밍 언어였으나
+            es6이후로 class와 변수를 추가해 객체지향 언어의 특징을 가진다.</li>
+          <li>자바스크립트는 주로 다루는 객체가 window.document로 DOMTree로 구성된 document의
+             특정 Element를 찾는 것에서 부터 시작된다.예)document로.getElemetById()</li>
+          <li>자바스크립트는 html 문서가 모두 브라우저에 출력되고 마지막에 실행된다.</li>
+        </ul>
+      </article>
+      <article class="">
+        <h2>자바스크립트가 브라우저에서 할 수 있는 일</h2>
+        <ul>
+          <li>html 문서의 내용과 속성을 추가 수정 삭제가 가능하다.
+            <script>
+              document.write("&nbsp;<a href='#'>추가된 내용</a>")
+            </script>
+          </li>
+          <li>html 문서의 스타일 변경할 수 있다.
+            <button type="button" onclick="this.style.background='red'">스타일 변경</button>
+          </li>
+          <li onmouseover="this.style.color='blue'">
+            html 요소에서 발생하는 외부기기의 입력을 이벤트로 받아 ui를 동적으로 바꾼다.
+          </li>
+          <li>
+            브라우저의 (BOM) 정보를 알 수 있거나 입력 및 수정을 할 수 있다.
+            <script>
+              document.write("현재주소:"+window.location.href)
+            </script>
+          </li>
+        </ul>
+      </article>
+      <script>
+        //태그 내부에서 작성해야한다.(한줄주석)
+        /* 여려줄 주석*/
+        let a= "안녕하세요"; //대입 선언 실행시 꾝 세미콜론을 찍어햐한다.
+        let b= "안녕"
+        let c= "바보"
+        //브라우저가 띄어쓰기를 세미콘론으로 인식한다.(권장하지 않는다)
+      </script>
+      <article>
+        <h2>html에서 자바스크립트 작성법</h2>
+        <ul>
+          <li>코드는 script 태그 내부에서 작성해한다.</li>
+          <li>script type="text/JavaScript" 올드 자바스크립트로 사용되지 않는다.</li>
+          <li>script src="" 확장자가 js인 파일을 외부에서 참조할 수 있다.</li>
+          <li>코드를 실행 및 선언 후 꼭꼭꼭 ";" 세미콜론을 작성해야한다.</li>
+          <li>// 한줄 주석</li>
+          <li>/**/ 여러줄 주석</li>
+          <li>"use strict" : 엄격모드 (es6 문법 사용시 자동으로 설정, class let...)
+            js 파일 상단에 꼭 작성해야한다. 이유는 과거 문법이 오류를 많이 만들기 때문이다.
+            예) var num=10;(o)  num=20; (o, x)
+          </li>
+        </ul>
+      </article>
+    </main>
+  </body>
 
 
 
