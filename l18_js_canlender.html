@@ -566,97 +566,36 @@
         </tr>
       </tbody>
     </table>
+    <div class="memoBox">
+      <h1>할 일 목록 메모장</h1>
+      <article id="memo">
+        <div class="container">
+          <h3 class="title">9월 10일 할 일</h3>
+          <ul class="schedule">
+            <li>9:00 운전하기.</li>
+            <li>10:00 세수하기
+              <button value="0" class="delete" type="button">X</button>
+            </li>
+            <li>11:00 도시락싸기
+              <button value='' class="delete" type="button">X</button>
+            </li>
+            <li>11:10운전하기
+              <button value='' class="delete" type="button">X</button>
+            </li>
+          </ul>
+        </div>
+        <form class="insert_schedule" name="insertSchedule">
+          <label>
+            <input type="time" name="registTime" value="09:00">
+          </label>
+          <label>
+            <input type="text" name="registText" value="일어나기">
+          </label>
+          <button type="button" name="regist">스케줄추가</button>
+        </form>
+      </article>
+    </div>
   </body>
-  <script>
-const tdList= document.querySelectorAll("#calendarTable td");
-for(td of tdList){
-  td.onmouseenter=(event)=>{
-    event.target.querySelector(".schedule").style.visibility="visible";
-  }
-  td.addEventListener("mouseleave",function(event){
-    event.target.querySelector(".schedule").style.visibility="hidden";
-  })
-}
-
-//9월 마지막 일 구하기
-let lastDay=new Date(2021,9,0).getDate();
-//9월의 시작하는 요일 구하기
-let firstDay=new Date(2021,8,1).getDay();
-//let a=1,b=2;
-//활성화된 해당 월 출력
-for(let i=firstDay,d=1; i<lastDay+firstDay; i++){
-  tdList[i].querySelector(".day").innerText=d++;
-  tdList[i].classList.add("active"); //활성화된 td 스타일
-}
-//전달의 마지막날 구하기
-let lastMonth=new Date(paraYear,dateMonth,0).getDate();
-//선언된 변수가 조건문의 대입되지 않는 경우 기본값을 주어라.
-
-/*
-let next_button_month= (paraMonth + 1 == 13) ? 1 : paraMonth + 1;
-let next_button_year= (paraMonth + 1 == 13) ? paraYear - 1 : paraYear;
-let pre_button_month = (paraMonth-1==0)? 12:paraMonth-1;
-let pre_button_year = (paraMonth-1==0)? paraYear-1:paraYear;
-
-if(paraMonth==13){
-  next_button_month=1;
-  next_button_year=paraYear+1;
-}else{
-  next_button_month=paraMonth+1;
-  next_button_year=paraYear;
-}
-*/
-
-/*
-const changeMonth = {
-  next:{
-    month: (paraMonth + 1 == 13) ? 1 : paraMonth + 1, 
-    year: (paraMonth + 1 == 13) ? paraYear-1 : paraYear,
-    text: function(){return `${this.year}년 ${this.month}월 `} ,
-    value: function(){return this.year + "-" + this.month} 
-  }, 
-  pre:{
-    month: (paraMonth - 1 == 0) ? 12 : paraMonth - 1,
-    year: (paraMonth - 1 == 0) ? paraYear - 1 : paraYear,
-    text: function(){return `${this.year}년 ${this.month}월 `} ,
-    value: function(){return this.year + "-" + this.month} 
-  }
-};
-*/
-
-console.log(changeMonth);
-//함수로 JSON 객체 선언하는법
-function ButtonValue(month,year){
-  this.month=month; //this.key : 객체에 key 를 만듬.
-  this.year=year;
-  this.text=this.year+"년 "+this.month+"월 ";
-  this.value=this.year+"-"+this.month;
-}
-//new changeButton(month,year);
-const nextBtn = (paraMonth+1==13)? new ButtonValue(1,paraYear+1) : new ButtonValue(paraMonth+1,paraYear);
-const preBtn = (paraMonth - 1 == 0) ? new ButtonValue(12, paraYear - 1) : new ButtonValue(paraMonth - 1, paraYear);
-
-
-  document.getElementById("toDate").innerText = `${paraYear}, ${paraMonth}`;
-  document.getElementById("nextMonth").innerText = nextBtn.text();
-  document.getElementById("nextMonth").value = nextBtn.value();
-  document.getElementById("preMonth").innerText = preBtn.text();
-  document.getElementById("preMonth").value = preBtn.value();
-
-//비활성화된 전달의 출력
-for(let i=firstDay-1; i>=0; i--){ 
-  tdList[i].querySelector(".day").innerText=lastMonth--;
-  tdList[i].classList.add("disabled");//비활성화된 td 스타일
-}
-//비활성화된 다음달 출력
-let nextMonth=firstDay+lastDay
-for(let i=nextMonth,num=1; i<=tdList.length-1; i++){
-  tdList[i].querySelector(".day").innerText=num++;
-  tdList[i].classList.add("disabled");//비활성화된 td 스타일
-}
-
-function printCalendar(paraYear, paraMonth){
-
-} 
+  <script src=".\script\date_memo.js">
 </script>
 </html>
