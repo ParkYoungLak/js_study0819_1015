@@ -55,7 +55,7 @@
   </ul>
   </article>
   <article>
-    <h2 id="noneTest">display none </h2>
+    <h2 id="noneTest" >display none </h2>
     <p>
       <label for="">
         <button type="button" onclick="noneTest.style.display='none'">제목 없애기</button>
@@ -65,11 +65,12 @@
   <ul>
     <li>display none 은 해당 요소를 화면에 표시하지 않는다.</li>
     <li>해당 요소는 노드 개체가 삭제되지는 않는다.</li>
+    <li>display 는 애니메이션 대상에서 제외된다.</li>
   </ul>
   </article>
   <h1>visibility 요소를 보이게 할건지를 결정한다.</h1>
   <article>
-    <h2 id="hiddenTest">visibility hidden </h2>
+    <h2 id="hiddenTest" style="transition: visibility 3s;">visibility hidden </h2>
     <p>
       <label for="">
         <button type="button" onclick="hiddenTest.style.visibility='hidden'">제목 없애기</button>
@@ -83,15 +84,17 @@
         </ul>
       </li>
       <li>visibility: visible 은 default값으로 해당 요소를 보이게 한다.</li>
+      <li>visibility 는 애니메이션 대상에 포함되어 있지만 오작동한다.</li>
     </ul>
   </article>
   <article>
-    <h2 id="opacityTest" style="background-color: rgba(255,0,0,.2);">opacity 0= hidden </h2>
+    <h2 id="opacityTest" style="background-color: rgba(255,0,0,.2); transition: opacity 4s;">opacity 0= hidden </h2>
     <p>
       <label for="">
         <button type="button" onclick="opacityTest.style.opacity='.5'">opacity 0.5</button>
         <button type="button" onclick="opacityTest.style.opacity='0'">opacity 0</button>
         <button type="button" onclick="opacityTest.style.opacity='1'">opacity 1</button>
+
 
       </label>
     </p>
@@ -99,6 +102,28 @@
       <li>opacity : 0 은 visibility : hidden 과 거의 동일하게 작동한다.</li>
       <li>opacity는 요소의 투명도를 조절할 수 있다.</li>
       <li>rgba로 요소의 배경투명도를 변경하는 것과는 차이가 있다.</li>
+    </ul>
+  </article>
+  <article>
+    <h2 id="transformTest" style="transition: transform 1s;">transform scale(x,y) </h2>
+    <p>
+      <label for="">
+        <button type="button" onclick="transformTest.style.transform='scaleX(.5)'">scaleX(.5)</button>
+        <button type="button" onclick="transformTest.style.transform='scaleX(0)'">scaleX(0)</button>
+        <button type="button" onclick="transformTest.style.transform='scaleX(1)'">scaleX 1</button>
+        <button type="button" onclick="transformTest.style.transform='scaleX(2)'">scaleX 2</button>
+        <button type="button" onclick="transformTest.style.transform='scaleY(.5)'">scaleY(.5)</button>
+        <button type="button" onclick="transformTest.style.transform='scaleY(0)'">scaleY(0)</button>
+        <button type="button" onclick="transformTest.style.transform='scaleY(1)'">scaleY(1)</button>
+        <button type="button" onclick="transformTest.style.transform='scale(0,0)'">scale(0,0)</button>
+        <button type="button" onclick="transformTest.style.transform='scale(2,2)'">scale(2,2)</button>
+      </label>
+    </p>
+    <ul>
+      <li>style.transform 은 노드 개체를 2d ,3d로 변환해서 회전,배율,이동,기울기 등을 변경한다.</li>
+      <li>transform 을 적용한 노드는 실제크기가 변경되는 것이 아니라 스냅샷 같은 것이 변경되서 화면에 표현되기 때문에, 
+        다른 개체를 밀어내거나 당기지 않는다</li>
+      <li>transform 은 애니메이션을 적용하기에 최적의 속성이다.</li>
     </ul>
   </article>
 </body>
