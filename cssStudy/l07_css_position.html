@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>style position</title>
+</head>
+
+<body>
+    <h1>position 요소,노드 개체의 위치를 정의한다.(static, relative, absolute, fixed, sticky)</h1>
+    <article>
+      <h2>position : static (기본위치 default)</h2>
+      <p>모든 요소, 노드 객체는 위치를 static 으로 정의한다.</p>
+      <ul>
+        <li>
+          요소의 배치는 순차적이며 (위에서부터 아래로) <b>왼쪽</b> 에서부터 
+          <strong>오른쪽</strong> 으로 배치된다.
+        </li>
+        <li>자식요소는 부모요소의 위치를 기준으로 배치된다.</li>
+        <li>top, botton, left, right 를 사용할 수 없다.</li>
+      </ul>
+    </article>
+    <article>
+      <h2>position : relative (상대적 위치)</h2>
+      <div class="parent" style="width: 200px; height: 200px; background-color: gray;">
+        <div id="childBox0" class="child" style="transition:all 2s; width: 150px; height: 150px; background-color: rgba(0,0,0,.2); position: relative;">
+
+        </div>
+      </div>
+      <p>자식박스를 상대적 위치로 왼쪽 위 100px 씩 이동.</p>
+      <p>
+        <button type="button" onclick="childBox0.style.top='100px'">아래로 100px 이동</button>
+        <button type="button" onclick="childBox0.style.left='100px'">오른쪽으로 100px 이동</button>
+        <button type="button" onclick="childBox0.style.left='0';childBox0.style.top='0' ">원점이동</button>
+      </p>
+      <ul>
+        <li>상대적 위치 relative는 정적위치 static 을 기준으로 노드를 이동시킨다. </li>
+        <li>상대적 위치로 이동한 노드 객체는 다른 노드에 영향을 주지 않는다.</li>
+      </ul>
+    </article>
+    <article>
+      <h2>position absolute(절대적 위치)</h2>
+      <div class="parent" style="width: 200px; height: 200px; background-color: gray;">
+        <div id="childBox1" class="child"
+          style="transition:all 2s; width: 150px; height: 150px; background-color: rgba(0,255,0,.4); 
+          position: absolute; top:100px; right: 0;">
+      절대적 박스<br>
+      부모 노드가 static  위치일 때 <br>
+      절대적 위치의 기준은 root노드인 body이다.
+        </div>
+      </div>  
+    </article>
+    <article>
+      <h2>position absolute(절대적 위치)</h2>
+      <div class="parent" style="width: 200px; height: 200px; background-color: gray; position: relative;">
+        <div id="childBox2" class="child" style="transition:all 2s; width: 150px; height: 150px; background-color: rgba(66, 17, 85, 0.4); 
+              position: absolute; top:100px; right: 0;">
+          절대적 박스<br>
+          부모 노드 중에 relative 위치가 있을 때<br>
+          절대적 위치의 기준은 relative위치를 가진 부모노드 기준.
+        </div>
+      </div>
+    </article>
+</body>
+
+</html>
