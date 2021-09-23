@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>css display</title>
+</head>
+
+<body>
+  <h1>display 속성으로 노드의 레이아웃 제어</h1>
+  <article>
+    <h2>display block </h2>
+    <p>항상 새로운 라인으로 시작하고 가로폭 전체를 차지한다.(width:100% = default) </p>
+    <ul>
+      <li>너비(width) 가 지정될 때 마진(margin)이 남은 가로폭을 채운다.</li>
+      <li>margin-left: 0 , margin-right: auto; 로 블럭이 왼쪽 정렬한다.</li>
+      <li>보통 block은 inline 요소를 포함하기 위해 지정한다.</li>
+      <li>box model 의 속성을 모두 포함한다.
+        <ul>
+          <li>width: 넓이, max-width:최대넓이, min-width:최소넓이</li>
+          <li>height: 높이, max-height: 최대높이, min-height: 최소높이</li>
+          <li>padding: 컨텐츠와 보더 사이 여백( top right botton left).</li>
+          <li>padding-top= padding: top 0 0;</li>
+          <li>padding-right= padding: 0 right 0 0;</li>
+          <li>padding-bottom= padding: 0 0 bottom 0;</li>
+          <li>padding-left= padding: 0 0 0 left;</li>
+          <li>border: box 의 윤곽선(두께 스타일 색)( top right botton left ).</li>
+          <li>margin: 컨텐츠와 보더 사이 여백( top right botton left).</li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+  <article>
+    <h2>display inline</h2>
+    <div>
+    <p>줄을 바꾸지 않고 다른 요소와 한행에 위치한다.
+      <b style="display: inline-block;  padding: 10px; border:1px solid black; line-height: 200px; vertical-align: top;">(width:fit-content default)</b>
+    </p>
+      <ul>
+        <li>box 모델 중에 width, height, ,margin-top, margin-botton 을 지정할 수 없다.</li>
+        <li>height 대신 line-height 로 상하 여백을 지정한다.</li>
+        <li>inline 의 스타일을 변경하거나 쓰임을 명시하기 위해 작성한다.</li>
+      </ul>
+    </div>
+
+  </article>
+  <article>
+    <h2>display inline-block  </h2>
+    <p>inline 과 같이 줄을 바꾸지 않고 다른 요소와 한행에 위치하는데 block 처럼 box 모델 모두를 지정할 수 있다.(width: fit-content default)</p>
+    <ul>
+      <li>요소 내부 컨텐츠의 뒤쪽 여백을 4px 로 자동 지정한다.</li>
+      <li>부모 요소의 컨텐츠(텍스트) 세로 정렬을 inline-block 내부의 컨텐츠 세로정렬이 같이 된다.</li>
+      <li>vertical-align 으로 컨텐츠의 세로정렬을 한다.</li>
+  </ul>
+  </article>
+  <article>
+    <h2 id="noneTest">display none </h2>
+    <p>
+      <label for="">
+        <button type="button" onclick="noneTest.style.display='none'">제목 없애기</button>
+        <button type="button" onclick="noneTest.style.display='block'">제목 나타내기</button>
+    </label>
+  </p>
+  <ul>
+    <li>display none 은 해당 요소를 화면에 표시하지 않는다.</li>
+    <li>해당 요소는 노드 개체가 삭제되지는 않는다.</li>
+  </ul>
+  </article>
+  <h1>visibility 요소를 보이게 할건지를 결정한다.</h1>
+  <article>
+    <h2 id="hiddenTest">visibility hidden </h2>
+    <p>
+      <label for="">
+        <button type="button" onclick="hiddenTest.style.visibility='hidden'">제목 없애기</button>
+        <button type="button" onclick="hiddenTest.style.visibility='visible'">제목 나타내기</button>
+      </label>
+    </p>
+    <ul>
+      <li>visibility : hidden 은 해당 요소를 화면에 보이지 않게 한다.
+        <ul>
+          <li>해당 요소의 box 속성을 그대로 남기고 보이지만 않게된다.</li>
+        </ul>
+      </li>
+      <li>visibility: visible 은 default값으로 해당 요소를 보이게 한다.</li>
+    </ul>
+  </article>
+  <article>
+    <h2 id="opacityTest" style="background-color: rgba(255,0,0,.2);">opacity 0= hidden </h2>
+    <p>
+      <label for="">
+        <button type="button" onclick="opacityTest.style.opacity='.5'">opacity 0.5</button>
+        <button type="button" onclick="opacityTest.style.opacity='0'">opacity 0</button>
+        <button type="button" onclick="opacityTest.style.opacity='1'">opacity 1</button>
+
+      </label>
+    </p>
+    <ul>
+      <li>opacity : 0 은 visibility : hidden 과 거의 동일하게 작동한다.</li>
+      <li>opacity는 요소의 투명도를 조절할 수 있다.</li>
+      <li>rgba로 요소의 배경투명도를 변경하는 것과는 차이가 있다.</li>
+    </ul>
+  </article>
+</body>
+
+</html>
