@@ -54,13 +54,79 @@
     <article>
       <h2>position absolute(절대적 위치)</h2>
       <div class="parent" style="width: 200px; height: 200px; background-color: gray; position: relative;">
-        <div id="childBox2" class="child" style="transition:all 2s; width: 150px; height: 150px; background-color: rgba(66, 17, 85, 0.4); 
+        <div id="childBox2" class="child" style="transition:all 2s; height: 150px; background-color: rgba(66, 17, 85, 0.4); 
               position: absolute; top:100px; right: 0;">
           절대적 박스<br>
           부모 노드 중에 relative 위치가 있을 때<br>
           절대적 위치의 기준은 relative위치를 가진 부모노드 기준.
         </div>
       </div>
+      <button type="button" onclick="childBox2.style.top='100px'">아래로 100px 이동</button>
+      <button type="button" onclick="childBox2.style.left='100px'">오른쪽으로 100px 이동</button>
+      <button type="button" onclick="childBox2.style.left='0';childBox2.style.top='0' ">원점이동</button>
+      <ul>
+        <li>absolute는 부모 요소중 relative,absolute,fixed가 정의되어 있으면 그 부모를 기준으로 위치를 이동한다.</li>
+        <li>만약 부모노드 중에 relative,absolute,fixed가 없다면 body를 기준으로 위치가 고정된다.</li>
+        <li>부유객체로 다른 요소를 밀거나 당기지 않고 덮어쓰는 형태로 존재한다.</li>
+        <li>absolute로 정의된 노드는 넓이가 content에 맞게 지정된다. 때문에 넓이를 지정하는 것이 좋다.</li>
+      </ul>
+    </article>
+    <article>
+      <h2>position fixed </h2>
+      <div class="overflowParent" style="width: 300px; height: 300px; border: 1px solid; overflow: auto; position: relative;">
+        <h3 style="position: fixed; bottom: 0; background: black; color: blanchedalmond; width: 100%;">
+          부모가 relative이고 overflow 가 있는 노드의 fixed된 제묵입니다.</h3>
+        <p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p>
+        <p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p>
+        <p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p>
+        <p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p>
+        <p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p>
+        <p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p><p>아무내용없슴.</p>
+      </div>
+      <ul>
+        <li>부모 요소와 아무런 상관없이 viewport(브라우저 화면)을 기준으로 노드 객체를 이동시킨다.</li>
+        <li>fixed 역시 absolute처럼 개체의 넓이와 높이가 content에 맞게 변경된다.</li>
+        <li>fixed 역시 부유객체로 다른 노드 개체를 덮는다.</li>
+      </ul>
+    </article>
+    <article>
+      <h2>position fixed </h2>
+      <div class="overflowParent"
+        style="width: 300px; height: 300px; border: 1px solid; overflow: auto; ">
+        <h3 style="position: sticky; top:0; background: black; color: blanchedalmond; width: 100%;">
+          top0 인 sticky 입니다.</h3>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <p>아무내용없슴.</p>
+        <h3 style="position: sticky; bottom:0; background: black; color: blanchedalmond; width: 100%;">
+          bottom 0 인 sticky입니다.</h3>
+      </div>
+      <ul>
+        <li>부모 요소와 아무런 상관없이 viewport(브라우저 화면)을 기준으로 노드 객체를 이동시킨다.</li>
+        <li>fixed 역시 absolute처럼 개체의 넓이와 높이가 content에 맞게 변경된다.</li>
+        <li>fixed 역시 부유객체로 다른 노드 개체를 덮는다.</li>
+      </ul>
     </article>
 </body>
 
