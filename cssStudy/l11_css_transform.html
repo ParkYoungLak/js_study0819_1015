@@ -1,0 +1,68 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title></title>
+    <style media="screen">
+        .container {
+            border: 1px solid;
+        }
+    
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            color: white;
+            box-shadow: 23px 3px 55px black;
+            left: 0;
+            position: relative;
+            transition: transform, 1s;
+        }
+        .container.d3{
+          perspective: 300px;
+        }
+        .container.d3 .box{
+          display: inline-block;
+          margin: 5px 20px;
+          transform: rotateY(60deg);
+        }
+        
+        </style>
+</head>
+<body>
+    <h1>transform 2D</h1>
+    <div class="container">
+        <div class="box" 
+        onclick="this.style.transform='scale(2,2) translate(100%,0) rotate(360deg)'">
+            scale(2,2);
+        </div>
+    </div>
+    <h1>transform 3D</h1>
+    <div class="container d3">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <br>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <br>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <h2>3d transition</h2>
+    <div class="container d3">
+      <div class="box rotateY" >
+        rotateY
+      </div>
+      <div class="box rotateZ">
+        rotateZ
+      </div>
+      <div class="box rotateX" style="float:right;">
+        rotateX
+      </div>
+    </div>
+</body>
+</html>
