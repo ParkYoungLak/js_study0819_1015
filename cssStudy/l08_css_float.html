@@ -155,7 +155,7 @@
         XML Course
       </article>
       <article>
-        <h2>float 가 가진 문제(float는 부모노드 block이 컨텐츠로 인지하지 못한다.)</h2>
+        <h2>float 가 가진 문제(float는 부모노드 block이 float block을 컨텐츠로 인지하지 못한다.)</h2>
         <div class="container">
        <div class="box left">
         float-left
@@ -165,10 +165,12 @@
       </article>
       <br><br><br><br><br><br><br><hr>
       <article>
-        <h2>float 가 가진 문제(float는 block이 컨텐츠로 인지하지 못한다.)</h2>
-        
+        <h2>float 가 가진 문제(형제노드 block이 float block을  컨텐츠로 인지하지 못한다.)</h2>
           <div class="box left">
             float-left
+          </div>
+          <div class="box right">
+            float-right
           </div>
           <div class="container">
             float 블럭 아래에 위치한 형제 노드.
@@ -176,10 +178,23 @@
           <div class="container">
             float 블럭 아래에 위치한 형제 노드.
             <div class="box">
-
             </div>
           </div>
-          
+      </article>
+      <article style="clear: sp;">
+        <h2>형제노드가 float를 컨텐츠로 인지 못하는 문제 해결(clear)</h2>
+        <div class="box left">
+        
+        </div>
+        <div class="container" style="clear:left;">
+          컨테이너입니다.
+        </div>
+      </article>
+      <article>
+        <h2>부노노드가 자식의 float를 컨텐츠로 못하는 이유</h2>
+        <div class="consainer" style="overflow: auto;">
+          div
+        </div>
       </article>
     </body>
 </html>
