@@ -1,0 +1,185 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        
+        <title>css fload</title>
+    </head>
+    <style media="screen">
+    .container{
+      border: 1px solid;
+    }
+    .left{
+      float: left;
+    }
+    .right{
+      float: right;
+    }
+    .box{
+      width: 150px;
+      height: 150px;
+      border: 1px solid;
+      background-color: darkgray;
+      color: white;
+    }
+    </style>
+    <body>
+      <h1>css float 로 블럭 정렬하기</h1>
+      <p>float 는 글자(inline)가 여러줄 있을때 그 사이 왼쪽이나 오른쪽에 블럭을 삽입하기 위해 존재함.</p>
+      <p>display:inline-block 은 글자(inline)가 한줄 있을때 삽입하기에 유용함.
+        (블럭의 높이와 상관없이 한줄에 삽입되기 때문)
+      </p>
+      <article class="container">
+        <div class="logoImg" 
+        style="
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+        background: black; color: white;
+        display: inline-block; 
+        ">
+          w3school
+        </div>
+        
+        Top Tutorials
+        HTML Tutorial
+        CSS Tutorial
+        JavaScript Tutorial
+        How To Tutorial
+        SQL Tutorial
+        Python Tutorial
+        W3.CSS Tutorial
+        Bootstrap Tutorial
+        PHP Tutorial
+        Java Tutorial
+        C++ Tutorial
+        jQuery Tutorial
+        Top References
+        HTML Reference
+        CSS Reference
+        JavaScript Reference
+        SQL Reference
+        Python Reference
+        W3.CSS Reference
+        Bootstrap Reference
+        PHP Reference
+        HTML Colors
+        Java Reference
+        Angular Reference
+        jQuery Reference
+        Top Examples
+        HTML Examples
+        CSS Examples
+        JavaScript Examples
+        How To Examples
+        SQL Examples
+        Python Examples
+        W3.CSS Examples
+        Bootstrap Examples
+        PHP Examples
+        Java Examples
+        XML Examples
+        jQuery Examples
+        Web Courses
+        HTML Course
+        CSS Course
+        JavaScript Course
+        Front End Course
+        SQL Course
+        Python Course
+        PHP Course
+        jQuery Course
+        Java Course
+        C++ Course
+        C# Course
+        XML Course
+        <div class="logoImg" style="
+                        width: 100px;
+                        height: 100px;
+                        border: 1px solid;
+                        background: black; color: white;
+                        float: right; 
+                        ">
+          w3school
+        </div>
+        Top Tutorials
+        HTML Tutorial
+        CSS Tutorial
+        JavaScript Tutorial
+        How To Tutorial
+        SQL Tutorial
+        Python Tutorial
+        W3.CSS Tutorial
+        Bootstrap Tutorial
+        PHP Tutorial
+        Java Tutorial
+        C++ Tutorial
+        jQuery Tutorial
+        Top References
+        HTML Reference
+        CSS Reference
+        JavaScript Reference
+        SQL Reference
+        Python Reference
+        W3.CSS Reference
+        Bootstrap Reference
+        PHP Reference
+        HTML Colors
+        Java Reference
+        Angular Reference
+        jQuery Reference
+        Top Examples
+        HTML Examples
+        CSS Examples
+        JavaScript Examples
+        How To Examples
+        SQL Examples
+        Python Examples
+        W3.CSS Examples
+        Bootstrap Examples
+        PHP Examples
+        Java Examples
+        XML Examples
+        jQuery Examples
+        Web Courses
+        HTML Course
+        CSS Course
+        JavaScript Course
+        Front End Course
+        SQL Course
+        Python Course
+        PHP Course
+        jQuery Course
+        Java Course
+        C++ Course
+        C# Course
+        XML Course
+      </article>
+      <article>
+        <h2>float 가 가진 문제(float는 부모노드 block이 컨텐츠로 인지하지 못한다.)</h2>
+        <div class="container">
+       <div class="box left">
+        float-left
+       </div>
+      이곳은 컨테이너입니다.(블럭 내부에 글자는 float를 인지한다.)
+        </div>
+      </article>
+      <br><br><br><br><br><br><br><hr>
+      <article>
+        <h2>float 가 가진 문제(float는 block이 컨텐츠로 인지하지 못한다.)</h2>
+        
+          <div class="box left">
+            float-left
+          </div>
+          <div class="container">
+            float 블럭 아래에 위치한 형제 노드.
+          </div>
+          <div class="container">
+            float 블럭 아래에 위치한 형제 노드.
+            <div class="box">
+
+            </div>
+          </div>
+          
+      </article>
+    </body>
+</html>
