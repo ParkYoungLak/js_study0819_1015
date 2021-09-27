@@ -13,17 +13,33 @@
     <li>const arr = [1,2,3];(x 리터럴한 선언)=> new Array(1,2,3)(배열객체를 생성하는 실제방식)</li>
     <li>class Person{name,age; constructor(name,age){}}=> 
         new Person("박영락",44);=>{name:null,age:null}</li>
+    <li>class를 선언하는 이유1: 캡슐화로 사용할 객체를 사용하지 않는 것과 분리.(은닉 information hiding)
+      사용하는 객체를 문제가 생기지 않도록 처리. (속성) 멤버변수(this.무엇)를 선언하고 (행위)
+      메서드를 선언하는 행위.
+    </li>
+    <li>언어적 측면에서 접근 지정자에 의해 정의된 변수나 멤버 변수에 의해 오류가 발생할 것을 
+      사전에 방지하는 행위(name=null) 기계적 오류X</li> 
+    <li>"박_영락".split("_"), null.split("_")=> 오류</li>
+    <li>class를 선언하는 이유2(재사용): 상속으로 class를 재사용 가능</li>
+    <li>class를 선언하는 이유3(유지보수): 선언된 class를 수정하면 참조하는 모든 class가 변경된다.</li>
+    <li>class의 단점1: 설계시 개발 속도를 느리게 한다.</li>
+    <li>class의 단점2: 객체가 많고 설계가 잘못되면 용량이 커진다.</li>
+    <li>class의 단점3: 자바스크립트는 class를 function의 대용품으로 사용중.</li>
   </ul>
 </body>
 <script>
   class Person{
-    name;age;
+    //name;age;
 //person 가장 가까운 자원이 this
 // => this.name, this.age, this()=> constructor()== new Person()
 // 클래스는 생성자를 호출해야하므로  컨스트럭터 소환.  
     constructor(n,a){
-
+      this.name = (n)? n:"no name";
+      this.age = (a>=0)? a:0;
     }
   }
+
+  const p2 = new Person(null, -1);
+  console.log(p2);
 </script>
 </html>

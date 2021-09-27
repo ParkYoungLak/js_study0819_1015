@@ -1,0 +1,28 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>class getter setter private </title>
+
+</head>
+<body>
+  <h1>class의 은닉을 위한 getter setter private</h1>
+<script>
+  class Person {
+    _name; //member, field, 속성, 전역변수 this로 접근가능.
+    constructor(name='no name'){
+      this._name= name;
+    }
+    getName() {
+      return this._name+" 님";
+    }
+  }
+
+  console.log(Person.prototype)
+  const p = new Person("박영락");
+  console.log(p.name);
+  console.log(p._name);
+  console.log(p.getName());
+</script>
+</body>
+</html>
