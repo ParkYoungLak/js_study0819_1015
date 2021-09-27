@@ -1,0 +1,29 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>class basic</title>
+    
+</head>
+<body>
+  <h1>javascript class</h1>
+  <ul>
+    <li>클래스 class: 자동차를 조작, 캡슐화를 통한 속성 가져오기로 간적적으로 조작.</li>
+    <li>object ={name:"박영락",age:44}=>object={name:null,age:-1}</li>
+    <li>const arr = [1,2,3];(x 리터럴한 선언)=> new Array(1,2,3)(배열객체를 생성하는 실제방식)</li>
+    <li>class Person{name,age; constructor(name,age){}}=> 
+        new Person("박영락",44);=>{name:null,age:null}</li>
+  </ul>
+</body>
+<script>
+  class Person{
+    name;age;
+//person 가장 가까운 자원이 this
+// => this.name, this.age, this()=> constructor()== new Person()
+// 클래스는 생성자를 호출해야하므로  컨스트럭터 소환.  
+    constructor(n,a){
+
+    }
+  }
+</script>
+</html>
