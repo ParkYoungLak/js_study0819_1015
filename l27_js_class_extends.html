@@ -1,0 +1,50 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>css extends </title>
+
+</head>
+<body>
+  <h1>class 상속으로 재사용을 배우자.</h1>
+  <script>
+class Animal{
+  name;bark;age;species;
+  constructor(name, bark, age, species){
+    this.name=name;
+    this.bark=bark;
+    this.age=age;
+    this.species=species;
+  }
+  }
+  //Dog는 Animal의 특성을 모두 가짐.
+  //Dog 는 털{길이:,색:,곱슬한정도:}과 주인[경민,은송] 후각(100m) 
+  class Dog extends Animal{
+    hair; owner; smell;
+    constructor(name, bark, age, species,hair, owner, smell){
+      super(name,bark,age,species);
+      this.hair=hair;
+      this.owner=owner;
+      this.smell=smell;
+    }
+  }
+  class Maltese extends Dog{
+    barking; smeling;
+    constructor(name,age,owner){
+      super(name,"말티즈멍멍",age,"마르티즈",{ length: Infinity, color: "white", curly: "middle"},owner,500)
+      this.barking = "often" + this.bark;
+    }
+    get barking(){
+      return this.barking;
+    }
+  }
+  
+  const dog = new Animal("홍구","멍멍멍멍",10,"마르티즈");
+  console.log(dog)
+  const animal_dog= new Dog("홍구","멍멍멍멍",10,"마르티즈",{length:20,color:"white",curly:"middle"},"경민",500);
+  console.log(animal_dog);
+  const maltiz_dog = new Maltese();
+  console.log(maltiz_dog);
+  </script>
+</body>
+</html>
