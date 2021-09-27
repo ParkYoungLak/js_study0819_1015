@@ -1,0 +1,38 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title></title>
+    <style>
+      .box{
+        background-color: blue;
+        width: 500px;
+        height: 500px;
+        margin: auto;
+        transition: background 1s;
+      }
+    </style>
+</head>   
+<body>
+  <h1>Intersection Observer 로 화면에 노드가 나타나는 것을 확인하자.</h1>
+  <p>new IntersectionObserver((enterties,observe)=>(),option)</p>
+  <p>Observer.observe(element)=>element 가 화면에 나타나는지 확인.</p>
+  <div class="container"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+  <div id="obersveTest" class="box"> </div>
+</body> 
+<script>
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((item,i)=>{
+      if(item.isIntersecting){
+        item.target.style.background="red";
+      }
+    })
+  },{threshold:1});
+  observer.observe(obersveTest)
+  console.log(observer);
+</script>
+</html>
