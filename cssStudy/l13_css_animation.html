@@ -1,0 +1,193 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>css animation</title>
+<style>
+.container{
+  border: 1px solid;
+  padding: 20px;
+}
+.box{
+  border: 1px;
+  background: green;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: 0;
+}
+.move_color{
+  transition-property: left, background;
+  transition-duration: 2s 1s;
+}
+.move_color:hover{
+  left: calc(100%-100px);
+  background: red;
+}
+.ani_move_color{
+  animation-name: moveColor;
+  animation-duration: 4s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+}
+.ani_move_color:hover{
+  animation-play-state: paused;
+}
+@keyframes moveColor{
+  25%{
+    transform: rotate(360deg);
+  }
+  50%{
+    left:100%;
+    background-color: red;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+    
+  }
+  75%{
+    transform: scale(3);
+  }
+  100%{
+    left: 0;
+    background-color: green;
+  }
+}
+.box.turn_move{
+  animation: turnMove 2s 1 none;
+  animation-duration: 2;
+}
+.fill_none{
+  animation-fill-mode: none;
+}
+.fill_forwards{
+  animation-fill-mode: forwards;
+}
+.fill_backwards{
+  animation-fill-mode: backwards;
+}
+.fill_both{
+  animation-fill-mode: both;
+}
+@keyframes turnMove{
+  from{
+    right: 50px;
+    transform: rotate(10deg);
+
+  }
+  to{
+    left:calc(100%-100px);
+    transform: rotate(360deg)
+  }
+}
+.box.round{
+  animation-name: rounding1;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+}
+@keyframes rounding1{
+  0%{
+   
+    background-color: greenyellow;
+  }
+  25%{
+    left: 100%;
+    top: 0;
+    background-color: rgb(45, 125, 71);
+  }
+  50%{
+    left: 100%;
+    top:100% ;
+    background-color: rgb(78, 23, 88);
+  }
+  75%{
+    left: 0px;
+    top: 100%;
+    background-color: rgb(93, 83, 182);
+  }
+  95%{
+    left: 0px;
+    top: 0px;
+    background-color: rgb(213, 193, 11);
+  }
+  to{
+    left: 0px;
+    top: 0px;
+    background-color: rgb(53, 4, 8);
+  }
+}
+</style>
+</head>
+<body>
+  <h1>css animation으로 복잡한 애니메이션을 만들자.</h1>
+  <h2>transition으로 박스 움직이고 색 바꾸기.</h2>
+  <div class="container">
+<div class="box move_color"
+onclick="this.classList.toggle('active')"></div>
+<h2>animation으로 박스 움직이고 색 바꾸기.</h2>
+  </div>
+  <div class="container">
+    <div class="box"
+    onclick="this.classList.toggle('ani_move_color')"></div>
+  </div>
+  <h2>animation은 javascript 의 setInterval로 만드는 동작을 간단하게 작성할 수 있다.</h2>
+  <ul>
+    <li>animation: 모든 프로퍼티를 작성. (shorthane syntax) </li>
+    <li>animation-name: @keyframes 이름을 지정
+      (이벤트로 애니메이션을 등록할 요소에 animation-name을 추가하면 된다.=> 만약 동작하지 않으면
+      이름이 정의된 클래스를 추가하면 된다.</li>
+    <li>@keyframes animation-name: 애니메이션이 동작하는 단계를 나눠서 설정.</li>
+    <li>animation-duration: 한싸이클의 애니메이션이 쇼요되는 시간( s or ms default 0)</li>
+    <li>animation-timing-function: 애니메이션이 속도를 나타내는 함수(default ease)</li>
+    <li>animation-delay: 요소가 시작될 시점(-delay: 애니메이션이 동작된 미래를 나타낸다.)</li>
+    <li>animation-iteration-count : 애니메이션의 재생 횟수.(default:1,infinite)</li>
+    <li>animation-play-state: 애니메이션의 재생상태를 지정(default:running stop:paused)</li>
+    <li>animation-direction: 
+      {normal: from0~to100%,
+        reverse: to~from,
+        alternative: 홀수번째는 normal 짝수번쨰는 reverse,
+        alternative-reverse: alternative의 반대.}</li>
+    <li>animation-fill-mode:</li>
+    <ul>
+      <li>none: 시작점에서 keyframes 0%에 적용된 스타일을 적용하지 않고 대기하다.
+        <br>애니메이션이 종료되면 원래 상태로 되돌리고 종료한다.
+      </li>
+      <li>forwards: none과 시작은 같고 애니메이션이 종료되면 그 상태 그대로 종료한다.</li>
+      <li>backwoards: 시작점에서 keyframes에 적용된 스타일을 적용하고 대기하다.</li>
+      <li>both: 시작은 backwoards와 같고 종효는 forwards와 같다.</li>
+      <code></code>
+    </ul>
+    </ul>
+    <h2>turn move box (fill-mode:none)</h2>
+    <div class="container">
+      <div class="box turn_move fill_none">
+
+      </div>
+    </div>
+    <div class="container">
+      <div class="box turn_move fill_forwards">
+    
+      </div>
+    </div>
+    <div class="container">
+      <div class="box turn_move fill_backwards">
+    
+      </div>
+    </div>
+    <div class="container">
+      <div class="box turn_move fill_both">
+    
+      </div>
+    </div>
+    <h2>move around box 
+      animation-direction: <select class="" id="">
+        <option value="normal">normal</option>
+        <option value="reverse">reverse</option>
+        <option value="alternative">alternative</option>
+        <option value="alternative-reverse">alternative-reverse</option>
+      </select></h2>
+      <div class="container" style="height: 500px;">
+      <div class="box round"></div>
+      </div>
+</body>
+</html>

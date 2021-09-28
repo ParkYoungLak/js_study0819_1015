@@ -25,6 +25,15 @@
   <div id="obersveTest" class="box"> </div>
 </body> 
 <script>
+  function ObserverOption(root=null,rootMargin, threshold) {
+    this.root= root;
+    this.rootMargin= rootMargin;
+    this.threshold= threshold;
+  }
+  let option= new ObserverOption(null,"50px, 0px",0.5);
+  console.log(option);
+  //IntersectionObserver(callbackF,option)
+  //IntersectionObserver(callbackF,{threshold:0.5})
   const observer = new IntersectionObserver((entries)=>{
     entries.forEach((item,i)=>{
       if(item.isIntersecting){
