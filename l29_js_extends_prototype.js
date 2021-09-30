@@ -30,6 +30,7 @@ console.log("Child.__proto__",Child.__proto__);
 console.log("Child.__proto__",Child.__proto__.__proto__);
 console.log("Child.__proto__",Child.__proto__.__proto__.__proto__);
 console.groupEnd();
+//debugger;
 
 const child=new Child()
 console.group("클래스의 상속 new Child()")
@@ -76,3 +77,8 @@ FuncParent.prototype.d = "dd";
 console.log(assign_func);
 console.log(assign_func.prototype);
 //깊은복사가 되지않는다. prototype은 복사한 대상과 동일한 프로토타입을 참조한다.
+
+const assign_new=Object.assign(new FuncParent());
+FuncParent.prototype.d = "DDD";
+console.log(assign_new);
+console.log(assign_new.__proto__);

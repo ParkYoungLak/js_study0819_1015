@@ -5,5 +5,17 @@
   </head>
   <body>
     <h1>프로토 타입의 상속</h1>
+    <ul>
+      <li>프로토타입은 함수와 객체가 생성될 때 만들어진다.</li>
+      <li>프로토타입의 상속은 __proto__ 로 프로토타입을 연결하는 것.</li>
+      <li>원시적 상속 : obj.__proto__= f_obj</li>
+      <li>create 상속 : c_obj=Object.create(f_obj) 결과는 위와 같다ㅏ.</li>
+      <li>instance 객체 생성(new F()) : new F().__proto__=F(){},
+        new F().__proto__.__proto__=F.prototype </li>
+      <li>class A extends B{} : A.__proto__=b.prototype</li>
+      <li>B=Object.assign(A) : A가 B.ptorotype을 공유 (B의 필드를 A에 복사) 상속이 아님.</li>
+      <li>생성된 프로토 타입은 하나만 존재하며 계속 공유됨. 떄문에 프로토타입이 바뀌면 
+        상속하는 (링크) 자식 또한 바뀐다. </li>
+    </ul>
   </body>
 </html>

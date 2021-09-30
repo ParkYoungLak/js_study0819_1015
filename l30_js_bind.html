@@ -1,0 +1,40 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>js bind() </title>
+</head>
+<body>
+  <h1>js의 바인드로 객체의 필드를 정의하자(바인드하자)</h1>
+  <p>Function.prototype.bind() : bind(object)는 함수의 멤버(this)를 object가 바인드(정의)한다  </p>
+</body>
+<script>
+  const literal_obj={
+    a:"a",
+    b:"b",
+    callA:function(){
+      return this.a+"호출";
+    }
+  };
+  literal_obj.callB=function(){
+    return this.b+"호출";
+  }
+  console.log(literal_obj.callA());
+  console.log(literal_obj.callB());
+  const unbind_callA=literal_obj.callA;
+  const unbind_callB = literal_obj.callB;
+
+  console.log(unbind_callA);
+  console.log(unbind_callA());
+  console.log(unbind_callB);
+  console.log(unbind_callB());
+  
+  const a=function(){return this.name+"씨 안녕하세요"}
+  console.log(a())
+
+  const bind_a=a.bind({name:"아무개"});
+  console.log(bind_a())
+
+
+</script>
+</html>
