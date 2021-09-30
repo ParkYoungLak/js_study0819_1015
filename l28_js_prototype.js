@@ -40,6 +40,4 @@ console.log("car3",car3);
 console.log("car3",car3.__proto__); //new Car()
 console.log("car3",car3.__proto__.__proto__); //Car.prototype
 console.log("car3",car3.__proto__.__proto__.__proto__); //Object.prototype
-
-
 console.groupEnd;

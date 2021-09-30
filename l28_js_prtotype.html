@@ -25,14 +25,66 @@
   <li>함수를 선언하면 prototype 이 생성된다.</li>
   <li>함수는 함수일 뿐 객체가 아니다. 하지만 객체로 사용할 수 있는 prototype이 생성된다.</li>
   <li>함수를 선언할 때 {}body 안을 this(멤버,필드,속성)이라고 한다.
-    멤버는 객체를 생성할 때 해당 객체의 prototype이 된다.(객체는 별개의 prototype을 검색할 수 없다.)
-  </li>
+    멤버는 객체를 생성할 때 해당 객체의 prototype이 된다.(객체는 별개의 prototype을 검색할 수 없다.)</li>
+  <li>상속받지 않은 함수는 부모가 자기자신의 prototype이고 이 prototype은 
+    (Object.prototype)+(함수.constructor) 다.</li>
+  <li>Object.prototype 이 모든 객체의 부모이다.</li>
 <script>
-  function A() {
-    this.a="a";
-    this.b=function(){return "b";}
+  function A(para_a,para_b) {
+    this.a=para_a;
+    this.b=function(){return para_b;}
   }
-  console.log(A)
+  console.group("function A(){}");
+  console.log(A);
+  console.log(A.prototype);
+  console.log(A.__proto__);
+  console.groupEnd;
+
+  const a= new A("aaa","bbb");
+</script>
+<ul>
+  <h2>인스턴스 객체(new)의 프로토타입</h2>
+  <li>함수를 new로 생성한 객체는 prototype은 아니지만 자기자신이 prototype처럼 쓰인다.</li>
+  <li>객체의 부모에 함수의 생성자가 있다.</li>
+  <li>객체를 생성하면 생성한 함수가 객체의 부모가 된다.</li>
+  <li>함수가 객체의 부모는 최상위 객체인 object 거나 또다른 부모 함수 프로토타입이다.</li>
+</ul>
+<h2>class의 프로토타입</h2>
+<ul>
+  <li>class 는 함수의 슈거코드로 함수이다.</li>
+  <li>함수와 차이점이 있다면 class 에 선언된 필드중에 함수가 프로토타입에 선언된다.</li>
+  <li>Objeck.create()는 객체를 생성하고 상속하는 원시적 방법으로 객체를 생성할 떄
+    프로토타입을 공유(상속)하기 때문에(부모의 필드는 자식이 __proto__로 링크한다.)
+    필드에 선언된 함수를 상속받을 수 없다. 때문에 함수는 프로토타입에 선언해야 한다.</li>
+    <li>prototype은 정적(<-> 인스턴스 new )으로 언제든 참조가능하다.떄문에 prototype레
+    선언된 함수는 객체 생성없이 호출가능하다.</li>
+</ul>
+<script>
+  //class 는 class인척 하는 함수이다.
+  class Clock{
+    constructor(a,b){
+      this.a=a;
+      this.b=b;
+    }
+    c(){
+      return "cc";
+    }
+  }
+  console.group("class Clock{}");
+    console.log("class Clock{}",Clock);
+    console.log("class Clock{}.prototype",Clock.prototype);
+    console.log("class Clock{}.__proto__",Clock.__proto__);
+    console.log("class Clock{}.__proto__", Clock.__proto__.__proto__);
+    console.groupEnd;
+  
+  const clock = new Clock("똑딱","뚝딱");  
+  console.log("new Clock().prototype",clock.__proto__.c());
+  console.group("class Clock{}",clock);
+    console.log("class Clock{}", clock);
+    console.log("class Clock{}.prototype", clock.prototype);
+    console.log("class Clock{}.__proto__", Clock.__proto__);
+    console.log("class Clock{}.__proto__", Clock.__proto__.__proto__);
+    console.groupEnd;
 </script>
 </body>
 </html>
