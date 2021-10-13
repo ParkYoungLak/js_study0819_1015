@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>promise() reject로 예외 처리하자 (콘솔을 보세요!)</h1>
+<script>
+
+function sum(a,b){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            if(Number(a)&&Number(b)){
+                resolve(a+b);
+            }else{
+                reject("수가 아닌 값이 파라미터로 왔습니다.");
+            }
+        },1000);
+    });
+}
+
+new sum("dddd",20).then(
+    (resolvePara)=>{
+        console.log(resolvePara);
+    }
+).then(()=>{
+    console.log("계산 실행 완료");
+}).catch((rejectPara)=>{
+    console.log(rejectPara);
+});
+console.log("비동기된 실행");
+//sum()을 2초 뒤에 실행하고 실행한 결과를 출력
+// new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log(sum(1,2)); 
+//         resolve();
+//     },1000);
+
+// }).then((resolveResult)=>{
+//     console.log("계산 실행 완료");
+// })
+
+//sum()을 2초 뒤에 실행하고 실행한 결과를 출력한후 실행 완료 메세지를 출력
+</script>
+
+</body>
+</html>

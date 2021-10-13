@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>promise로 함수의 실행을 동기화 하세요.(콘솔을 보세요!)</h1>
+<script>
+
+console.log("1");
+// window.setTimeout( ()=>{
+//     console.log("2");
+// }, 1000);
+// console.log("3");
+
+
+//setTimeout 원하는 초 뒤에 함수 실행
+
+const p=new Promise((resolve,reject)=>{
+
+    window.setTimeout( ()=>{
+        console.log("2");
+        resolve();
+    }, 1000);
+
+});
+p.then(()=>{
+    console.log("3");
+});
+
+console.log("상관없는 실행");
+
+
+
+
+
+//자바스크립트는 순차적 언어로 순서대로 실행된다.
+//자바스크립트는 오래걸리거나 반복되는 실행이 있으면 그 실행은 따로 하고 나머지를 계속 실행한다.    
+</script>
+</body>
+</html>
