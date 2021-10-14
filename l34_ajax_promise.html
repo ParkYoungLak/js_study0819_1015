@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+function setimeReq(url,selector,method="GET"){
+    const req=new XMLHttpRequest(); //통신준비
+    req.open(method,url);
+    //onreadystatechange 요청을 총 5단계로 실행
+    //req.onreadystatechange=function(){if(req.readyState===XMLHttpRequest.DONE){}} 
+    //onload 요청의 마지막 단계(DONE)만 실행
+    req.onload=function(){
+        if(req.status===200){
+            document.querySelector(selector).innerHTML=req.responseText;
+        }
+    }
+    req.send();
+}   
+//setimeReq 함수를 setTimeout의 callback 함수로 재정의 (o)
+//window.setTimeout(setimeReq,2000);
+//setimeReq함수의 실행을 setTimeout의 callback 함수로 재정의(x)
+//window.setTimeout(setimeReq("load_body.html","#loadAjax1"),2000);
+
+//react에서 익명함수를 콜백함수로 재정의하는 것과 같은 방법
+//window.setTimeout(()=>{setimeReq("load_body.html","#loadAjax1")},2000);
+//window.setTimeout(()=>{setimeReq("load_body2.html","#loadAjax2")},3000);
+//window.setTimeout(()=>{setimeReq("load_body3.html","#loadAjax3")},4000);
+window.setTimeout(()=>{
+    const req=new XMLHttpRequest(); //통신준비
+    req.open("GET","load_body.html");
+    req.onload=function(){
+        if(req.status===200){
+            document.querySelector("#loadAjax1").innerHTML=req.responseText;
+            const req2=new XMLHttpRequest(); //통신준비
+            req2.open("GET","load_body2.html");
+            req2.onload=function(){
+                if(req2.status===200){
+                    document.querySelector("#loadAjax2").innerHTML=req2.responseText;
+                    const req3=new XMLHttpRequest(); //통신준비
+                    req3.open("GET","load_body3.html");
+                    req3.onload=function(){
+                        if(req3.status===200){
+                            document.querySelector("#loadAjax3").innerHTML=req3.responseText;
+                        }
+                    }
+                    req3.send();    
+                }
+            }
+            req2.send();    
+        }
+    }
+    req.send();
+},2000);
+
+</script>
+<div id="loadAjax1"></div>
+<div id="loadAjax2"></div>
+<div id="loadAjax3"></div>
+
+</body>
+</html>

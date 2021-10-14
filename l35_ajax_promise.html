@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function primiseReq(url,method="GET"){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const req=new XMLHttpRequest();
+            req.open(method,url);
+            req.onload=function(){
+                resolve(req.responseText)
+            }
+            req.send();
+
+        },2000);
+    });
+}
+// primiseReq("load_body.html")
+//     .then((resolveMsg)=>{
+//         loadAjax1.innerHTML=(resolveMsg);
+//     }).then(()=>{
+//         primiseReq("load_body2.html")
+//         .then((resolveMsg)=>{
+//             loadAjax2.innerHTML=resolveMsg;
+//         }).then(()=>{
+//             primiseReq("load_body3.html").then((resolveMsg)=>{
+//                 loadAjax3.innerHTML=resolveMsg;
+//             })
+//         })
+//     });
+
+async function loadBodys(){
+    await primiseReq("load_body.html").then(
+        (res)=>{loadAjax1.innerHTML=res}
+    );
+    await primiseReq("load_body2.html").then(
+        (res)=>{loadAjax2.innerHTML=res}
+    );
+    await primiseReq("load_body3.html").then(
+        (res)=>{loadAjax3.innerHTML=res}
+    );
+}
+loadBodys()
+</script>   
+
+<div id="loadAjax1"></div>
+<div id="loadAjax2"></div>
+<div id="loadAjax3"></div>
+
+</body>
+</html>
